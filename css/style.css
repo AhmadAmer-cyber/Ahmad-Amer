@@ -1,0 +1,158 @@
+/* استكمال CSS */
+
+/* تأثيرات للرسوم المتحركة */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* الفلاتر والأزرار */
+.filter-btn {
+    padding: 8px 20px;
+    border-radius: 20px;
+    background: white;
+    color: #6B7280;
+    transition: all 0.3s ease;
+    border: 1px solid #E5E7EB;
+}
+
+.filter-btn.active {
+    background: #2563EB;
+    color: white;
+}
+
+/* كروت معرض الأعمال */
+.portfolio-item {
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transform: translateY(-10px);
+}
+
+.portfolio-item img {
+    transition: all 0.5s ease;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.portfolio-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover .overlay {
+    opacity: 1;
+}
+
+/* تأثيرات بوابة الدفع */
+.payment-method {
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.payment-method:hover {
+    border-color: #2563EB;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1);
+}
+
+.payment-method.selected {
+    border-color: #2563EB;
+    background-color: rgba(37, 99, 235, 0.05);
+}
+
+/* التأقتم مع الوضع المظلم */
+.dark .nav-link {
+    color: #D1D5DB;
+}
+
+.dark .nav-link:hover {
+    color: #3B82F6;
+}
+
+.dark .filter-btn {
+    background: #1F2937;
+    color: #D1D5DB;
+    border-color: #374151;
+}
+
+.dark .portfolio-item {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* تأثيرات الشريط العلوي عند التمرير */
+.navbar-scrolled {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.dark .navbar-scrolled {
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+/* تأثيرات المهارات */
+.skill-tag {
+    background: #E5E7EB;
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.skill-tag i {
+    margin-right: 5px;
+    transition: all 0.3s ease;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .section-subtitle {
+        font-size: 16px;
+    }
+    
+    .portfolio-item img {
+        height: 200px;
+    }
+}
+/* تخصيصات إضافية للتوافق */
+#testimonials {
+    scroll-margin-top: 100px; /* لمنع اختفاء الجزء العلوي خلف الـ navbar */
+}
+
+/* تحسينات للهواتف */
+@media (max-width: 640px) {
+    #testimonials .section-subtitle {
+        font-size: 1rem;
+    }
+}

@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Amer</title>
+    <title>أحمد عامر - مصمم جرافيك محترف</title>
     <!-- Favicon Links -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
-
     <link rel="icon" href="images/favicon.png" type="image/png">
     
     <!-- Meta Tags -->
@@ -20,12 +19,8 @@
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- CSS Libraries -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"/>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -42,177 +37,118 @@
                     },
                     fontFamily: {
                         arabic: ['Tajawal', 'sans-serif'],
+                        english: ['Inter', 'sans-serif'],
+                        japanese: ['Noto Sans JP', 'sans-serif'],
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'wave': 'wave 2.5s infinite',
+                        'fade-in': 'fadeIn 1s ease-in'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        wave: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '10%': { transform: 'rotate(14deg)' },
+                            '20%': { transform: 'rotate(-8deg)' },
+                            '30%': { transform: 'rotate(14deg)' },
+                            '40%': { transform: 'rotate(-4deg)' },
+                            '50%': { transform: 'rotate(10deg)' },
+                            '60%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(0deg)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        }
                     }
                 }
             }
         }
     </script>
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* عرض النافذة الجانبية للمعرض */
-        #gallerySidebar {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            width: 0;
-            background-color: #111827;
-            overflow-x: hidden;
-            transition: 0.4s;
-            padding-top: 60px;
-            z-index: 1000;
-            color: white;
-            display: flex;
-            flex-direction: column;
-        }
-        #gallerySidebar.open {
-            width: 80vw;
-            max-width: 600px;
-        }
-        #gallerySidebar header {
-            position: sticky;
-            top: 0;
-            background: #1f2937;
-            padding: 1rem 1.5rem;
-            font-weight: bold;
-            font-size: 1.25rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 10;
-            border-bottom: 1px solid #374151;
-        }
-        #gallerySidebar .closeBtn {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: white;
-            cursor: pointer;
-        }
-        #gallerySidebar .galleryContent {
-            padding: 1rem 1.5rem;
-            overflow-y: auto;
-            flex-grow: 1;
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
-            gap: 12px;
-        }
-        #gallerySidebar .galleryContent img {
-            width: 100%;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            object-fit: cover;
-            height: 100px;
-        }
-        #gallerySidebar .galleryContent img:hover {
-            transform: scale(1.05);
+        /* استكمال CSS */
+        :root {
+            --header-height: 80px;
         }
         
-        /* تأثيرات العداد */
-        .counter {
+        body {
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* تأثيرات للرسوم المتحركة */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        .section-title {
             font-size: 2.5rem;
-            font-weight: bold;
-            color: #2563EB;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
         }
         
-        /* تأثيرات الأزرار */
-        .btn-primary {
-            background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(to right, #2563EB, #059669);
+            border-radius: 2px;
         }
         
-        /* تصميم بوابة الدفع */
-        .payment-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            padding: 2rem;
-            max-width: 500px;
-            margin: 0 auto;
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #6B7280;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
         }
         
-        .payment-method {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Added for centering */
-            padding: 1rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .dark .section-subtitle {
+            color: #D1D5DB;
         }
         
-        .payment-method:hover {
-            border-color: #2563EB;
-        }
-        
-        .payment-method.selected {
-            border-color: #2563EB;
-            background-color: rgba(37, 99, 235, 0.05);
-        }
-        
-        .payment-method img {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
-        }
-        
-        /* تصميم قسم التواصل */
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .contact-item i {
-            width: 40px;
-            height: 40px;
-            background: #2563EB;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        /* Modal styles for image/video */
-        .modal-content img, .modal-content iframe, .modal-content video { /* Added video to modal content styles */
-            object-fit: contain; /* Ensure image/video fits within modal */
-        }
-
-        /* فلتر المشاريع - تصميم جديد */
+        /* الفلاتر والأزرار */
         .filter-btn {
-            padding: 0.6rem 1.5rem; /* زيادة حجم الأزرار قليلاً */
+            padding: 0.5rem 1.5rem;
             border-radius: 9999px;
-            font-weight: 600; /* جعل الخط أثقل */
-            color: #6B7280; /* لون نص افتراضي */
+            font-weight: 600;
+            color: #6B7280;
             background-color: transparent;
             transition: all 0.3s ease;
             cursor: pointer;
@@ -220,8 +156,9 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            border: 1px solid #E5E7EB;
         }
-
+        
         .filter-btn::before {
             content: '';
             position: absolute;
@@ -229,55 +166,251 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #2563EB, #059669); /* تدرج لوني للخلفية */
+            background: linear-gradient(45deg, #2563EB, #059669);
             transform: translateX(-100%);
             transition: transform 0.3s ease;
             z-index: -1;
         }
-
+        
         .filter-btn.active {
             color: white;
-            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4); /* ظل أكبر وأكثر وضوحًا */
-            transform: translateY(-2px); /* رفع الزر قليلاً عند التفعيل */
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
+            transform: translateY(-2px);
+            border-color: transparent;
         }
-
+        
         .filter-btn.active::before {
             transform: translateX(0%);
         }
-
+        
         .filter-btn:hover:not(.active) {
-            color: #2563EB; /* لون النص عند التحويم */
-            background-color: #DBEAFE; /* خلفية فاتحة عند التحويم */
-            transform: translateY(-1px); /* رفع خفيف عند التحويم */
+            color: #2563EB;
+            background-color: #DBEAFE;
+            transform: translateY(-1px);
         }
-
+        
         .dark .filter-btn {
-            color: #9CA3AF; /* لون نص افتراضي للوضع الداكن */
+            color: #9CA3AF;
+            border-color: #374151;
         }
-
+        
         .dark .filter-btn::before {
-            background: linear-gradient(45deg, #1D4ED8, #047857); /* تدرج لوني للوضع الداكن */
+            background: linear-gradient(45deg, #1D4ED8, #047857);
         }
-
+        
         .dark .filter-btn.active {
             color: white;
             box-shadow: 0 6px 15px rgba(29, 78, 216, 0.4);
         }
-
+        
         .dark .filter-btn:hover:not(.active) {
-            color: #60A5FA; /* لون النص عند التحويم للوضع الداكن */
-            background-color: #374151; /* خلفية داكنة عند التحويم */
+            color: #60A5FA;
+            background-color: #374151;
         }
-
-        /* Mobile Menu Styles */
+        
+        /* كروت معرض الأعمال */
+        .portfolio-item {
+            margin-bottom: 20px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .portfolio-item:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transform: translateY(-10px);
+        }
+        
+        .portfolio-item img, .portfolio-item video {
+            transition: all 0.5s ease;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+        
+        .portfolio-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            border-radius: 16px;
+        }
+        
+        .portfolio-item:hover .overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-item .overlay-content {
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .portfolio-item:hover .overlay-content {
+            transform: translateY(0);
+        }
+        
+        /* تأثيرات بوابة الدفع */
+        .payment-method {
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .payment-method:hover {
+            border-color: #2563EB;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .payment-method.selected {
+            border-color: #2563EB;
+            background-color: rgba(37, 99, 235, 0.05);
+        }
+        
+        .payment-method i {
+            font-size: 1.8rem;
+            color: #2563EB;
+        }
+        
+        .dark .payment-method {
+            border-color: #374151;
+        }
+        
+        .dark .payment-method.selected {
+            background-color: rgba(37, 99, 235, 0.1);
+        }
+        
+        /* التأقتم مع الوضع المظلم */
+        .dark .nav-link {
+            color: #D1D5DB;
+        }
+        
+        .dark .nav-link:hover {
+            color: #3B82F6;
+        }
+        
+        .dark .portfolio-item {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* تأثيرات الشريط العلوي عند التمرير */
+        .navbar-scrolled {
+            transform: translateY(0) !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .dark .navbar-scrolled {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            background: rgba(30, 41, 59, 0.9);
+        }
+        
+        /* تأثيرات المهارات */
+        .skill-tag {
+            background: #E5E7EB;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+        }
+        
+        .skill-tag i {
+            margin-right: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background: #2563EB;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .skill-tag:hover i {
+            color: white;
+        }
+        
+        .dark .skill-tag {
+            background: #374151;
+            color: #D1D5DB;
+        }
+        
+        .dark .skill-tag:hover {
+            background: #2563EB;
+        }
+        
+        /* تخصيصات إضافية للتوافق */
+        section {
+            scroll-margin-top: calc(var(--header-height) + 20px);
+        }
+        
+        /* تحسينات للهواتف */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-title::after {
+                width: 50px;
+                height: 3px;
+                bottom: -8px;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .portfolio-item img, .portfolio-item video {
+                height: 220px;
+            }
+            
+            .filter-btn {
+                padding: 0.4rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .portfolio-item img, .portfolio-item video {
+                height: 180px;
+            }
+        }
+        
+        /* شريط التنقل المتنقل */
         #mobile-menu {
             position: fixed;
             top: 0;
-            right: -100%; /* Start off-screen */
-            width: 70%; /* Adjust as needed */
-            max-width: 300px;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
             height: 100%;
-            background-color: #1E293B; /* Dark background for mobile menu */
+            background-color: #1E293B;
             color: white;
             padding-top: 4rem;
             box-shadow: -5px 0 15px rgba(0,0,0,0.3);
@@ -286,11 +419,11 @@
             display: flex;
             flex-direction: column;
         }
-
+        
         #mobile-menu.open {
             right: 0;
         }
-
+        
         #mobile-menu .close-btn {
             position: absolute;
             top: 1rem;
@@ -301,32 +434,38 @@
             color: white;
             cursor: pointer;
         }
-
+        
         #mobile-menu .mobile-nav-links {
             display: flex;
             flex-direction: column;
-            padding: 1rem;
+            padding: 1.5rem;
         }
-
+        
         #mobile-menu .mobile-nav-links a {
-            padding: 0.75rem 1rem;
+            padding: 1rem;
             margin-bottom: 0.5rem;
             color: white;
             font-size: 1.1rem;
             border-radius: 0.5rem;
             transition: background-color 0.2s ease;
+            display: flex;
+            align-items: center;
         }
-
+        
+        #mobile-menu .mobile-nav-links a i {
+            margin-left: 0.5rem;
+        }
+        
         #mobile-menu .mobile-nav-links a:hover {
             background-color: #2D3748;
         }
-
+        
         #mobile-menu .mobile-nav-links .btn-primary {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             width: fit-content;
             align-self: center;
         }
-
+        
         /* Overlay for mobile menu */
         .mobile-menu-overlay {
             position: fixed;
@@ -336,77 +475,860 @@
             height: 100%;
             background-color: rgba(0,0,0,0.5);
             z-index: 999;
-            display: none; /* Hidden by default */
+            display: none;
         }
+        
         .mobile-menu-overlay.open {
             display: block;
         }
+        
+        /* تأثيرات الأزرار */
+        .btn-primary {
+            background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            gap: 0.5rem;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(5, 150, 105, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #2563EB;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid #2563EB;
+            font-weight: 600;
+            cursor: pointer;
+            gap: 0.5rem;
+        }
+        
+        .btn-outline:hover {
+            background: #2563EB;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .dark .btn-outline {
+            color: #93C5FD;
+            border-color: #93C5FD;
+        }
+        
+        .dark .btn-outline:hover {
+            background: #2563EB;
+            color: white;
+        }
+        
+        /* تصميم كروت الخدمات */
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .dark .service-card {
+            background: #1E293B;
+        }
+        
+        .service-card .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 2rem auto 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            padding: 0 1.5rem;
+            color: #1E293B;
+        }
+        
+        .dark .service-title {
+            color: white;
+        }
+        
+        .service-description {
+            color: #64748B;
+            text-align: center;
+            padding: 0 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .dark .service-description {
+            color: #CBD5E1;
+        }
+        
+        .service-price {
+            background: #F1F5F9;
+            color: #2563EB;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-align: center;
+            padding: 1.25rem;
+            border-top: 1px solid #E2E8F0;
+        }
+        
+        .dark .service-price {
+            background: #2D3748;
+            color: #93C5FD;
+            border-top: 1px solid #374151;
+        }
+        
+        /* تصميم آراء العملاء */
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .dark .testimonial-card {
+            background: #1E293B;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 5rem;
+            color: rgba(37, 99, 235, 0.1);
+            line-height: 1;
+        }
+        
+        .dark .testimonial-card::before {
+            color: rgba(37, 99, 235, 0.15);
+        }
+        
+        .testimonial-content {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-text {
+            color: #4B5563;
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .dark .testimonial-text {
+            color: #CBD5E1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid #2563EB;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-weight: 700;
+            color: #1E293B;
+            margin-bottom: 0.25rem;
+        }
+        
+        .dark .author-info h4 {
+            color: white;
+        }
+        
+        .author-info p {
+            color: #64748B;
+            font-size: 0.9rem;
+        }
+        
+        .dark .author-info p {
+            color: #94A3B8;
+        }
+        
+        .stars {
+            color: #F59E0B;
+            margin-top: 0.5rem;
+        }
+        
+        /* تأثيرات العدادات */
+        .counter {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2563EB;
+            transition: all 0.3s ease;
+        }
+        
+        .counter-label {
+            font-size: 0.9rem;
+            color: #64748B;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+        
+        .dark .counter-label {
+            color: #94A3B8;
+        }
+        
+        /* تأثيرات الخلفية */
+        .bg-blob {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.1;
+            filter: blur(80px);
+        }
+        
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #2563EB, #1D4ED8);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            top: 10%;
+            left: 10%;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #059669, #047857);
+            border-radius: 61% 39% 27% 73% / 59% 38% 62% 41%;
+            bottom: 10%;
+            right: 10%;
+            animation: float 18s infinite ease-in-out;
+        }
+        
+        /* تصميم نموذج التواصل */
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+        }
+        
+        .dark .contact-form {
+            background: #1E293B;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: #1E293B;
+        }
+        
+        .dark .form-label {
+            color: white;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.9rem 1.25rem;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+            background: #F8FAFC;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #2563EB;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+        
+        .dark .form-input {
+            background: #2D3748;
+            border-color: #374151;
+            color: white;
+        }
+        
+        .dark .form-input:focus {
+            border-color: #3B82F6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* تذييل الصفحة */
+        footer {
+            background: linear-gradient(to right, #1E293B, #0F172A);
+            color: white;
+            padding: 2.5rem 0;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .footer-logo-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #2563EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: #CBD5E1;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: #2563EB;
+        }
+        
+        .copyright {
+            padding-top: 1.5rem;
+            border-top: 1px solid #334155;
+            width: 100%;
+            color: #94A3B8;
+            font-size: 0.9rem;
+        }
+        
+        .wave-hand {
+            display: inline-block;
+            animation: wave 2s infinite;
+            transform-origin: 70% 70%;
+        }
+        
+        /* شريط التقدم */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: transparent;
+            z-index: 1000;
+        }
+        
+        .progress-bar {
+            height: 5px;
+            background: linear-gradient(to right, #2563EB, #059669);
+            width: 0%;
+            transition: width 0.2s ease;
+        }
+        
+        /* تأثيرات الـ hero section */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #2563EB, #059669);
+            opacity: 0.2;
+            filter: blur(20px);
+            z-index: -1;
+            border-radius: 30px;
+        }
+        
+        .badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: linear-gradient(135deg, #2563EB, #1D4ED8);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+            animation: float 4s infinite ease-in-out;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 20;
+        }
+        
+        /* تأثيرات الصفحة */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        /* Responsive adjustments for general layout */
-        @media (max-width: 1023px) { /* For screens smaller than large (lg) breakpoint */
-            .lg\:hidden {
-                display: block !important; /* Ensure mobile menu button is visible */
+        /* معرض الأعمال الجديد */
+        .portfolio-category-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-category-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        #portfolioSidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 10000;
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .dark #portfolioSidebar {
+            background: #1E293B;
+        }
+
+        #portfolioSidebar.open {
+            transform: translateX(0);
+        }
+
+        #portfolioSidebar .portfolio-content {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-item-full {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            background: white;
+            padding: 10px;
+        }
+
+        .dark .portfolio-item-full {
+            background: #2d3748;
+        }
+
+        .portfolio-item-full:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .portfolio-item-full img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+        }
+
+        .dark .portfolio-item-full img {
+            background: #2d3748;
+        }
+
+        .portfolio-item-full video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        #closePortfolio {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .dark #closePortfolio {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-category-item {
+                margin-bottom: 1.5rem;
             }
-            .hidden.lg\:flex {
-                display: none !important; /* Hide desktop navigation */
-            }
-            .lg\:w-1\/2 {
-                width: 100%;
-            }
-            .lg\:text-right {
-                text-align: center;
-            }
-            .lg\:justify-start {
-                justify-content: center;
-            }
-            .lg\:mx-0 {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .lg\:mt-0 {
-                margin-top: 3rem; /* Adjust spacing */
+            
+            .portfolio-item-full img,
+            .portfolio-item-full video {
+                height: 180px;
             }
         }
+
+        @media (max-width: 480px) {
+            .portfolio-category-item h3 {
+                font-size: 1.1rem;
+            }
+            
+            .portfolio-item-full img,
+            .portfolio-item-full video {
+                height: 150px;
+            }
+        }
+        
+        /* لغة التحديد */
+        .language-selector {
+            position: relative;
+            margin-left: 20px;
+        }
+        
+        .language-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(37, 99, 235, 0.1);
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .language-btn:hover {
+            background: rgba(37, 99, 235, 0.2);
+        }
+        
+        .language-btn img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 10px;
+            min-width: 140px;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .language-dropdown.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .language-option:hover {
+            background: #F1F5F9;
+        }
+        
+        .language-option img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+        
+        .dark .language-dropdown {
+            background: #1E293B;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .dark .language-option:hover {
+            background: #2D3748;
+        }
+        
+        /* اتجاهات النصوص للغات المختلفة */
+        body.english {
+            font-family: 'Inter', sans-serif;
+            direction: ltr;
+        }
+        
+        body.english .section-title::after {
+            left: 0;
+            right: auto;
+        }
+        
+        body.english .hero-content {
+            text-align: left;
+        }
+        
+        body.english .hero-content .flex {
+            justify-content: flex-start;
+        }
+        
+        body.english .service-card,
+        body.english .testimonial-card {
+            text-align: left;
+        }
+        
+        body.english .testimonial-card::before {
+            left: 30px;
+            right: auto;
+        }
+        
+        body.english .testimonial-author {
+            justify-content: flex-start;
+        }
+        
+        body.english .author-info {
+            text-align: left;
+        }
+        
+        body.english .form-label {
+            text-align: left;
+        }
+        
+        body.english .footer-content {
+            text-align: left;
+        }
+        
+        body.english .footer-links {
+            justify-content: flex-start;
+        }
+        
+        body.english .social-links {
+            justify-content: flex-start;
+        }
+        
+        body.japanese {
+            font-family: 'Noto Sans JP', sans-serif;
+            direction: ltr;
+        }
+        
+        body.japanese .section-title::after {
+            left: 0;
+            right: auto;
+        }
+        
+        body.japanese .hero-content {
+            text-align: left;
+        }
+        
+        body.japanese .hero-content .flex {
+            justify-content: flex-start;
+        }
+        
+        body.japanese .service-card,
+        body.japanese .testimonial-card {
+            text-align: left;
+        }
+        
+        body.japanese .testimonial-card::before {
+            left: 30px;
+            right: auto;
+        }
+        
+        body.japanese .testimonial-author {
+            justify-content: flex-start;
+        }
+        
+        body.japanese .author-info {
+            text-align: left;
+        }
+        
+        body.japanese .form-label {
+            text-align: left;
+        }
+        
+        body.japanese .footer-content {
+            text-align: left;
+        }
+        
+        body.japanese .footer-links {
+            justify-content: flex-start;
+        }
+        
+        body.japanese .social-links {
+            justify-content: flex-start;
+        }
     </style>
-<!-- Android Chrome Icons -->
-    <link rel="icon" type="image/png" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
-    </head>
-<body class="font-arabic bg-gray-50 dark:bg-dark text-gray-800 dark:text-gray-200 transition-all duration-300">
+</head>
+<body class="font-arabic bg-gray-50 dark:bg-dark text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <!-- شريط التقدم -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
     
     <!-- شريط التنقل الذكي -->
     <nav id="navbar" class="fixed w-full bg-white/90 dark:bg-dark/90 backdrop-blur-md z-50 shadow-sm transition-all duration-500">
-        <div class="container mx-auto px-6 py-3">
+        <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <!-- الشعار -->
                 <a href="#hero" class="flex items-center group">
-                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center mr-3 group-hover:rotate-12 transition-transform">
-                        <i class="fas fa-palette text-white text-lg"></i>
+                    <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mr-3 group-hover:rotate-12 transition-transform">
+                        <i class="fas fa-palette text-white text-xl"></i>
                     </div>
-                    <span class="text-xl font-bold text-gradient">Ahmed's portfolio</span>
+                    <span class="text-xl font-bold text-gradient bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">أحمد عامر</span>
                 </a>
                 
                 <!-- روابط التنقل (لشاشات سطح المكتب) -->
                 <div class="hidden lg:flex space-x-8 space-x-reverse items-center">
-                    <a href="#about" class="nav-link relative group px-2 py-1">
-                        <span>عني</span>
-                        <div class="nav-underline"></div>
+                    <a href="#about" class="nav-link relative group px-2 py-1 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        <span data-i18n="nav.about">عني</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-1 bg-primary transition-all duration-300 group-hover:w-full"></div>
                     </a>
-                    <a href="#services" class="nav-link relative group px-2 py-1">
-                        <span>خدماتي</span>
-                        <div class="nav-underline"></div>
+                    <a href="#services" class="nav-link relative group px-2 py-1 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        <span data-i18n="nav.services">خدماتي</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-1 bg-primary transition-all duration-300 group-hover:w-full"></div>
                     </a>
-                    <a href="#portfolio" class="nav-link relative group px-2 py-1">
-                        <span>معرض الأعمال</span>
-                        <div class="nav-underline"></div>
+                    <a href="#portfolio" class="nav-link relative group px-2 py-1 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        <span data-i18n="nav.portfolio">معرض الأعمال</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-1 bg-primary transition-all duration-300 group-hover:w-full"></div>
                     </a>
-                    <a href="#testimonials" class="nav-link relative group px-2 py-1">
-                        <span>آراء العملاء</span>
-                        <div class="nav-underline"></div>
+                    <a href="#testimonials" class="nav-link relative group px-2 py-1 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        <span data-i18n="nav.testimonials">آراء العملاء</span>
+                        <div class="absolute bottom-0 left-0 w-0 h-1 bg-primary transition-all duration-300 group-hover:w-full"></div>
                     </a>
-                    <a href="#payment" class="ml-4 bg-gradient-to-r from-primary to-secondary text-white px-5 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group">
-                        <span>بوابة الدفع</span>
-                        <i class="fas fa-arrow-left mr-2 group-hover:translate-x-1 transition-transform"></i>
+                    <a href="#payment" class="ml-4 btn-primary">
+                        <span data-i18n="nav.payment">بوابة الدفع</span>
+                        <i class="fas fa-arrow-left"></i>
                     </a>
                     
                     <!-- زر تبديل الثيم -->
@@ -414,6 +1336,29 @@
                         <i class="fas fa-moon dark:hidden"></i>
                         <i class="fas fa-sun hidden dark:inline"></i>
                     </button>
+                    
+                    <!-- محدد اللغة -->
+                    <div class="language-selector">
+                        <div class="language-btn" id="languageBtn">
+                            <img id="currentFlag" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA0OCI+PHBhdGggZmlsbD0iIzIwNjY0NCIgZD0iTTAgMzJoNjR2MTZIMHoiLz48cGF0aCBmaWxsPSIjY2NjIiBkPSJNMCAwaDY0djMySDB6Ii8+PHBhdGggZmlsbD0iI2RlMjkxOSIgZD0iTTAgMGg2NHYxNkgweiIvPjxwYXRoIGQ9Ik0yOC4zIDIyLjFsMi4yIDEuNi0uOC0yLjUgMi4yLTEuNi0yLjgtLjEtLjgtMi41LS44IDIuNS0yLjguMSAyLjIgMS42LS44IDIuNXoiIGZpbGw9IiNkZTI5MTkiLz48L3N2Zz4=" alt="Arabic">
+                            <span id="currentLang">AR</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </div>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <div class="language-option" data-lang="ar">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA0OCI+PHBhdGggZmlsbD0iIzIwNjY0NCIgZD0iTTAgMzJoNjR2MTZIMHoiLz48cGF0aCBmaWxsPSIjY2NjIiBkPSJNMCAwaDY0djMySDB6Ii8+PHBhdGggZmlsbD0iI2RlMjkxOSIgZD0iTTAgMGg2NHYxNkgweiIvPjxwYXRoIGQ9Ik0yOC4zIDIyLjFsMi4yIDEuNi0uOC0yLjUgMi4yLTEuNi0yLjgtLjEtLjgtMi41LS44IDIuNS0yLjguMSAyLjIgMS42LS44IDIuNXoiIGZpbGw9IiNkZTI5MTkiLz48L3N2Zz4=" alt="Arabic">
+                                <span data-i18n="lang.ar">العربية</span>
+                            </div>
+                            <div class="language-option" data-lang="en">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA0OCI+PHBhdGggZD0iTTAgMzJoNjR2MTZIMHoiIGZpbGw9IiMwMDJGNjgiLz48cGF0aCBkPSJNMCAwaDY0djMySDB6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTAgMGg2NHYxNkgweiIgZmlsbD0iI0ZGMDAwMCIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9IiMwMDJGNjgiLz48cGF0aCBkPSJNMCAwTDEyIDI0TDAgNDhIMTZMMTAgMzZMMTYgMjRMMTIgMTZMMTYgMEgwWk0yNCAwaDE2bC00IDhMNDAgMGg0TDM2IDZMMzIgMGg4TDI4IDEyTDI0IDBaIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTI0IDI0bC0xNi0yNEg4bDE2IDI0bDE2LTI0aC00bC0xNiAyNFoiIGZpbGw9IiNGRjAwMDAiLz48cGF0aCBkPSJNMzIgMjRMMTYgNDhoNEwyMCAzNkwyNCA0OEgyOEwzMiAzNkwzNiA0OGg0TDM2IDI0eiIgZmlsbD0iIzAwMkY2OCIvPjwvc3ZnPg==" alt="English">
+                                <span data-i18n="lang.en">English</span>
+                            </div>
+                            <div class="language-option" data-lang="ja">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA0OCI+PHBhdGggZD0iTTAgMGg2NHY0OEgweiIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9IjMyIiBjeT0iMjQiIHI9IjE0IiBmaWxsPSIjYmMwMDAwIi8+PC9zdmc+" alt="Japanese">
+                                <span data-i18n="lang.ja">日本語</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- زر القائمة المتنقلة (يظهر على الشاشات الصغيرة) -->
@@ -427,87 +1372,108 @@
     </nav>
 
     <!-- Mobile Menu (القائمة الجانبية للهاتف) -->
-    <div id="mobile-menu" class="fixed top-0 right-[-100%] w-70 max-w-xs h-full bg-dark text-white pt-16 shadow-lg transition-all duration-300 z-50 flex flex-col">
+    <div id="mobile-menu" class="fixed top-0 right-[-100%] w-80 max-w-xs h-full bg-dark text-white pt-16 shadow-lg transition-all duration-300 z-50 flex flex-col">
         <button class="close-btn absolute top-4 left-4 text-3xl text-white">&times;</button>
-        <div class="mobile-nav-links flex flex-col p-4">
-            <a href="#about" class="py-2 px-4 text-lg hover:bg-gray-700 rounded-md">عني</a>
-            <a href="#services" class="py-2 px-4 text-lg hover:bg-gray-700 rounded-md">خدماتي</a>
-            <a href="#portfolio" class="py-2 px-4 text-lg hover:bg-gray-700 rounded-md">معرض الأعمال</a>
-            <a href="#testimonials" class="py-2 px-4 text-lg hover:bg-gray-700 rounded-md">آراء العملاء</a>
-            <a href="#payment" class="btn-primary mt-4 text-center">
-                <span>بوابة الدفع</span>
-                <i class="fas fa-arrow-left mr-2"></i>
+        <div class="mobile-nav-links flex flex-col p-6">
+            <a href="#about" class="py-3 px-4 text-lg hover:bg-gray-700 rounded-md transition-colors">
+                <i class="fas fa-user mr-2"></i> <span data-i18n="nav.about">عني</span>
             </a>
-            <!-- زر تبديل الثيم في القائمة المتنقلة -->
-            <button id="mobile-theme-toggle" class="p-2 rounded-full text-gray-300 hover:bg-gray-700 mt-4 mx-auto transition-colors">
-                <i class="fas fa-moon dark:hidden"></i>
-                <i class="fas fa-sun hidden dark:inline"></i>
-                <span class="mr-2">تبديل الثيم</span>
-            </button>
+            <a href="#services" class="py-3 px-4 text-lg hover:bg-gray-700 rounded-md transition-colors">
+                <i class="fas fa-paint-brush mr-2"></i> <span data-i18n="nav.services">خدماتي</span>
+            </a>
+            <a href="#portfolio" class="py-3 px-4 text-lg hover:bg-gray-700 rounded-md transition-colors">
+                <i class="fas fa-images mr-2"></i> <span data-i18n="nav.portfolio">معرض الأعمال</span>
+            </a>
+            <a href="#testimonials" class="py-3 px-4 text-lg hover:bg-gray-700 rounded-md transition-colors">
+                <i class="fas fa-comments mr-2"></i> <span data-i18n="nav.testimonials">آراء العملاء</span>
+            </a>
+            <a href="#payment" class="py-3 px-4 text-lg hover:bg-gray-700 rounded-md transition-colors">
+                <i class="fas fa-credit-card mr-2"></i> <span data-i18n="nav.payment">بوابة الدفع</span>
+            </a>
+            <a href="#contact" class="py-3 px-4 text-lg hover:bg-gray-700 rounded-md transition-colors">
+                <i class="fas fa-envelope mr-2"></i> <span data-i18n="nav.contact">تواصل معي</span>
+            </a>
+            <div class="mt-6 flex justify-center">
+                <button id="mobile-theme-toggle" class="btn-outline">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                    <span data-i18n="nav.theme">تبديل الثيم</span>
+                </button>
+            </div>
+            <!-- Language selector for mobile -->
+            <div class="mt-4">
+                <div class="flex flex-col gap-2">
+                    <div class="language-option" data-lang="ar">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA0OCI+PHBhdGggZmlsbD0iIzIwNjY0NCIgZD0iTTAgMzJoNjR2MTZIMHoiLz48cGF0aCBmaWxsPSIjY2NjIiBkPSJNMCAwaDY0djMySDB6Ii8+PHBhdGggZmlsbD0iI2RlMjkxOSIgZD0iTTAgMGg2NHYxNkgweiIvPjxwYXRoIGQ9Ik0yOC4zIDIyLjFsMi4yIDEuNi0uOC0yLjUgMi4yLTEuNi0yLjgtLjEtLjgtMi41LS44IDIuNS0yLjguMSAyLjIgMS42LS44IDIuNXoiIGZpbGw9IiNkZTI5MTkiLz48L3N2Zz4=" alt="Arabic">
+                        <span data-i18n="lang.ar">العربية</span>
+                    </div>
+                    <div class="language-option" data-lang="en">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA0OCI+PHBhdGggZD0iTTAgMzJoNjR2MTZIMHoiIGZpbGw9IiMwMDJGNjgiLz48cGF0aCBkPSJNMCAwaDY0djMySDB6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTAgMGg2NHYxNkgweiIgZmlsbD0iI0ZGMDAwMCIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9IiMwMDJGNjgiLz48cGF0aCBkPSJNMCAwTDEyIDI0TDAgNDhIMTZMMTAgMzZMMTYgMjRMMTIgMTZMMTYgMEgwWk0yNCAwaDE2bC00IDhMNDAgMGg0TDM2IDZMMzIgMGg4TDI4IDEyTDI0IDBaIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTI0IDI0bC0xNi0yNEg4bDE2IDI0bDE2LTI0aC00bC0xNiAyNFoiIGZpbGw9IiNGRjAwMDAiLz48cGF0aCBkPSJNMzIgMjRMMTYgNDhoNEwyMCAzNkwyNCA0OEgyOEwzMiAzNkwzNiA0OGg0TDM2IDI0eiIgZmlsbD0iIzAwMkY2OCIvPjwvc3ZnPg==" alt="English">
+                        <span data-i18n="lang.en">English</span>
+                    </div>
+                    <div class="language-option" data-lang="ja">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA0OCI+PHBhdGggZD0iTTAgMGg2NHY0OEgweiIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9IjMyIiBjeT0iMjQiIHI9IjE0IiBmaWxsPSIjYmMwMDAwIi8+PC9zdmc+" alt="Japanese">
+                        <span data-i18n="lang.ja">日本語</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
 
     <!-- القسم الرئيسي -->
-    <section id="hero" class="pt-32 pb-20 relative overflow-hidden">
+    <section id="hero" class="pt-32 pb-20 relative overflow-hidden min-h-screen flex items-center">
         <!-- تأثيرات الخلفية -->
-        <div class="absolute top-0 left-0 w-full h-full opacity-10 z-0">
-            <div class="absolute top-20 left-1/4 w-64 h-64 rounded-full bg-primary blur-3xl opacity-20 animate-pulse-slow"></div>
-            <div class="absolute bottom-10 right-1/4 w-64 h-64 rounded-full bg-secondary blur-3xl opacity-20 animate-pulse-slow delay-1000"></div>
-        </div>
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
         
         <div class="container mx-auto px-6 relative z-10">
-            <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
                 <!-- محتوى النص -->
-                <div class="lg:w-1/2 text-center lg:text-right">
+                <div class="lg:w-1/2 text-center lg:text-right fade-in-section">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                        <span class="text-gradient">تصاميم إبداعية</span><br>
-                        <span class="text-primary">تعزز حضورك الرقمي</span>
+                        <span class="text-gradient bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent" data-i18n="hero.title">تصاميم إبداعية</span><br>
+                        <span class="text-primary" data-i18n="hero.subtitle">تعزز حضورك الرقمي</span>
                     </h1>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
-                        مصمم جرافيك محترف بخبرة 3+ سنوات، أقدم حلولاً بصرية مبتكرة تلبي احتياجات عملك وتبرز هويتك الفريدة
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0" data-i18n="hero.description">
+                        مصمم جرافيك محترف بخبرة 5+ سنوات، أقدم حلولاً بصرية مبتكرة تلبي احتياجات عملك وتبرز هويتك الفريدة
                     </p>
                     <div class="flex flex-wrap justify-center lg:justify-start gap-4">
                         <a href="#portfolio" class="btn-primary">
-                            <span>استعرض أعمالي</span>
-                            <i class="fas fa-arrow-left mr-2"></i>
+                            <span data-i18n="hero.button1">استعرض أعمالي</span>
+                            <i class="fas fa-arrow-left"></i>
                         </a>
                         <a href="#contact" class="btn-secondary">
-                            <span>لنعمل معًا</span>
-                            <i class="fas fa-paper-plane mr-2"></i>
+                            <span data-i18n="hero.button2">لنعمل معًا</span>
+                            <i class="fas fa-paper-plane"></i>
                         </a>
                     </div>
                     
                     <!-- إحصائيات مصغرة -->
                     <div class="flex justify-center lg:justify-start gap-8 mt-12">
                         <div class="text-center">
-                            <div class="counter" data-count="8">8</div>
-                            <div class="text-gray-500 text-sm">مشروع مكتمل</div>
+                            <div class="counter" data-count="8">0</div>
+                            <div class="counter-label" data-i18n="hero.stats1">مشروع مكتمل</div>
                         </div>
                         <div class="text-center">
-                            <div class="counter" data-count="84">84</div>
-                            <div class="text-gray-500 text-sm">عميل راضي</div>
+                            <div class="counter" data-count="84">0</div>
+                            <div class="counter-label" data-i18n="hero.stats2">عميل راضي</div>
                         </div>
                         <div class="text-center">
-                            <div class="counter" data-count="3">3</div>
-                            <div class="text-gray-500 text-sm">شهادات معتمدة</div>
+                            <div class="counter" data-count="3">0</div>
+                            <div class="counter-label" data-i18n="hero.stats3">شهادات معتمدة</div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- الصورة الشخصية -->
-                <div class="lg:w-1/2 mt-12 lg:mt-0 flex justify-center relative">
-                    <div class="relative w-full max-w-md">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-2xl opacity-20 blur-xl animate-pulse-slow"></div>
-                        <div class="relative overflow-hidden rounded-2xl shadow-2xl">
-                            <img src="images/photo.jpg" alt="" class="w-full h-auto object-cover transition-all duration-500 hover:scale-105">
-                        </div>
-                        <div class="absolute -bottom-6 -right-6 bg-gradient-to-r from-secondary to-primary text-white px-6 py-3 rounded-full shadow-lg animate-float">
-                            <div class="flex items-center">
-                                <i class="fas fa-medal text-xl mr-2"></i>
-                                <span>مصمم معتمد</span>
-                            </div>
+                <div class="lg:w-1/2 mt-12 lg:mt-0 flex justify-center relative fade-in-section">
+                    <div class="hero-image">
+                        <img src="images/photo.jpg" alt="أحمد عامر - مصمم جرافيك" class="w-full h-auto max-w-lg object-cover transition-all duration-500 hover:scale-105">
+                        <div class="badge">
+                            <i class="fas fa-medal"></i>
+                            <span data-i18n="hero.badge">مصمم معتمد</span>
                         </div>
                     </div>
                 </div>
@@ -517,23 +1483,18 @@
 
     <!-- قسم عني -->
     <section id="about" class="py-20 bg-white dark:bg-gray-800 relative overflow-hidden">
-        <!-- تأثيرات الخلفية -->
-        <div class="absolute top-0 left-0 w-full h-full opacity-5 z-0">
-            <div class="absolute top-1/2 left-1/4 w-96 h-96 rounded-full bg-primary blur-3xl opacity-10"></div>
-        </div>
-        
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="section-title">من أنا؟</h2>
-                <p class="section-subtitle">سعادتي تكمن في تحويل الأفكار إلى واقع مرئي مؤثر</p>
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="section-title" data-i18n="about.title">من أنا؟</h2>
+                <p class="section-subtitle" data-i18n="about.subtitle">سعادتي تكمن في تحويل الأفكار إلى واقع مرئي مؤثر</p>
             </div>
             
-            <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
                 <!-- الصورة الشخصية -->
-                <div class="lg:w-1/3 flex justify-center">
+                <div class="lg:w-2/5 flex justify-center fade-in-section">
                     <div class="relative">
                         <div class="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-full opacity-10 blur-xl animate-pulse-slow"></div>
-                        <div class="relative overflow-hidden rounded-full border-4 border-white dark:border-gray-800 shadow-xl w-64 h-64">
+                        <div class="relative overflow-hidden rounded-full border-4 border-white dark:border-gray-800 shadow-2xl w-72 h-72">
                             <img src="images/photo.jpg" alt="أحمد عامر - مصمم جرافيك" class="w-full h-full object-cover">
                         </div>
                         <div class="absolute -bottom-4 -right-4 bg-primary text-white p-4 rounded-full shadow-lg animate-float">
@@ -543,33 +1504,39 @@
                 </div>
                 
                 <!-- المعلومات الشخصية -->
-                <div class="lg:w-2/3 mt-8 lg:mt-0">
-                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">أحمد عامر، مصمم جرافيك محترف</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                        مع درجة البكالوريوس في علم الحاسوب، ودورات مكثفة في مجال التصميم الجرافيكي مع شهادات معتمدة وخبرة تمتد لأكثر من 3 سنوات في مجال التصميم والإبداع، أمتلك القدرة على تحويل الأفكار والمفاهيم المجردة إلى تصميمات مرئية جذابة وفعالة. تخصصت في تصميم الهويات البصرية والمواد التسويقية وتجربة المستخدم.
+                <div class="lg:w-3/5 mt-8 lg:mt-0 fade-in-section">
+                    <h3 class="text-3xl font-bold text-gray-800 dark:text-white mb-4" data-i18n="about.name">أحمد عامر، مصمم جرافيك محترف</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-lg" data-i18n="about.description">
+                        مع درجة البكالوريوس في علم الحاسوب، ودورات مكثفة في مجال التصميم الجرافيكي مع شهادات معتمدة وخبرة تمتد لأكثر من 5 سنوات في مجال التصميم والإبداع، أمتلك القدرة على تحويل الأفكار والمفاهيم المجردة إلى تصميمات مرئية جذابة وفعالة. تخصصت في تصميم الهويات البصرية والمواد التسويقية وتجربة المستخدم.
                     </p>
                     
                     <!-- المهارات -->
                     <div class="mb-8">
-                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">مجالات تخصصي:</h4>
-                        <div class="flex flex-wrap gap-3">
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-4" data-i18n="about.skillsTitle">مجالات تخصصي:</h4>
+                        <div class="flex flex-wrap gap-2">
                             <span class="skill-tag">
-                                <i class="fas fa-paint-brush mr-2"></i> تصميم الهوية البصرية
+                                <i class="fas fa-paint-brush"></i> <span data-i18n="skills.1">تصميم الهوية البصرية</span>
                             </span>
                             <span class="skill-tag">
-                                <i class="fas fa-mobile-alt mr-2"></i> واجهات المستخدم
+                                <i class="fas fa-mobile-alt"></i> <span data-i18n="skills.2">واجهات المستخدم</span>
                             </span>
                             <span class="skill-tag">
-                                <i class="fas fa-video mr-2"></i> موشن جرافيك
+                                <i class="fas fa-video"></i> <span data-i18n="skills.3">موشن جرافيك</span>
                             </span>
                             <span class="skill-tag">
-                                <i class="fas fa-book-open mr-2"></i> تصميم الكتب والمجلات
+                                <i class="fas fa-book-open"></i> <span data-i18n="skills.4">تصميم الكتب والمجلات</span>
                             </span>
                             <span class="skill-tag">
-                                <i class="fas fa-ad mr-2"></i> إعلانات التسويق
+                                <i class="fas fa-ad"></i> <span data-i18n="skills.5">إعلانات التسويق</span>
                             </span>
                             <span class="skill-tag">
-                                <i class="fas fa-icons mr-2"></i> تصميم الشعارات
+                                <i class="fas fa-icons"></i> <span data-i18n="skills.6">تصميم الشعارات</span>
+                            </span>
+                            <span class="skill-tag">
+                                <i class="fas fa-pencil-ruler"></i> <span data-i18n="skills.7">التصميم الطباعي</span>
+                            </span>
+                            <span class="skill-tag">
+                                <i class="fas fa-chart-pie"></i> <span data-i18n="skills.8">إنفوجرافيك</span>
                             </span>
                         </div>
                     </div>
@@ -577,12 +1544,12 @@
                     <!-- الأزرار -->
                     <div class="flex flex-wrap gap-4">
                         <a href="#contact" class="btn-primary">
-                            <span>تواصل معي</span>
-                            <i class="fas fa-envelope mr-2"></i>
+                            <span data-i18n="about.button1">تواصل معي</span>
+                            <i class="fas fa-envelope"></i>
                         </a>
-                        <a href="cv.pdf" download class="btn-outline">
-                            <span>تحميل السيرة الذاتية</span>
-                            <i class="fas fa-download mr-2"></i>
+                        <a href="#" class="btn-outline">
+                            <span data-i18n="about.button2">تحميل السيرة الذاتية</span>
+                            <i class="fas fa-download"></i>
                         </a>
                     </div>
                 </div>
@@ -593,46 +1560,94 @@
     <!-- قسم الخدمات -->
     <section id="services" class="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title">خدماتي الاحترافية</h2>
-                <p class="section-subtitle">حلول تصميمية متكاملة تلبي كافة احتياجاتك</p>
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="section-title" data-i18n="services.title">خدماتي الاحترافية</h2>
+                <p class="section-subtitle" data-i18n="services.subtitle">حلول تصميمية متكاملة تلبي كافة احتياجاتك</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> <!-- Changed lg:grid -cols-3 to lg:grid-cols-3 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- خدمة 1 -->
-                <div class="service-card">
-                    <div class="service-icon bg-primary/10 text-primary">
-                        <i class="fas fa-paint-brush"></i>
+                <div class="fade-in-section">
+                    <div class="service-card">
+                        <div class="service-icon bg-primary/10 text-primary">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="service-title" data-i18n="services.1.title">تصميم الهوية البصرية</h3>
+                        <p class="service-description" data-i18n="services.1.description">
+                            تصميم متكامل للهوية البصرية يشمل الشعار والألوان والطباعة والاستخدامات المختلفة مع دليل شامل للهوية.
+                        </p>
+                        <div class="service-price" data-i18n="services.1.price">بدءاً من 20$</div>
                     </div>
-                    <h3 class="service-title">تصميم الهوية البصرية</h3>
-                    <p class="service-description">
-                        تصميم متكامل للهوية البصرية يشمل الشعار والألوان والطباعة والاستخدامات المختلفة مع دليل شامل لله وية.
-                    </p>
-                    <div class="service-price">بدءاً من 20$</div>
                 </div>
                 
                 <!-- خدمة 2 -->
-                <div class="service-card">
-                    <div class="service-icon bg-secondary/10 text-secondary">
-                        <i class="fas fa-mobile-alt"></i>
+                <div class="fade-in-section" style="transition-delay: 0.1s;">
+                    <div class="service-card">
+                        <div class="service-icon bg-secondary/10 text-secondary">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="service-title" data-i18n="services.2.title">تصميم واجهات التطبيقات</h3>
+                        <p class="service-description" data-i18n="services.2.description">
+                            تصميم واجهات مستخدم جذابة وسهلة الاستخدام لتطبيقات الجوال مع مراعاة أفضل ممارسات تجربة المستخدم.
+                        </p>
+                        <div class="service-price" data-i18n="services.2.price">بدءًا من 40$</div>
                     </div>
-                    <h3 class="service-title">تصميم واجهات التطبيقات</h3>
-                    <p class="service-description">
-                        تصميم واجهات مستخدم جذابة وسهلة الاستخدام لتطبيقات الجوال مع مراعاة أفضل ممارسات تجربة المستخدم.
-                    </p>
-                    <div class="service-price">بدءًا من 40 $</div>
                 </div>
                 
                 <!-- خدمة 3 -->
-                <div class="service-card">
-                    <div class="service-icon bg-accent/10 text-accent">
-                        <i class="fas fa-video"></i>
+                <div class="fade-in-section" style="transition-delay: 0.2s;">
+                    <div class="service-card">
+                        <div class="service-icon bg-accent/10 text-accent">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 class="service-title" data-i18n="services.3.title">تصميم فيديوهات موشن جرافيك</h3>
+                        <p class="service-description" data-i18n="services.3.description">
+                            إنتاج فيديوهات إبداعية مع موشن جرافيك لإيصال رسالتك بطريقة جذابة وتفاعلية تلائم المنصات المختلفة.
+                        </p>
+                        <div class="service-price" data-i18n="services.3.price">بدءًا من 60$</div>
                     </div>
-                    <h3 class="service-title">تصميم فيديوهات موشن جرافيك</h3>
-                    <p class="service-description">
-                        إنتاج فيديوهات إبداعية مع موشن جرافيك لإيصال رسالتك بطريقة جذابة وتفاعلية تلائم المنصات المختلفة.
-                    </p>
-                    <div class="service-price">بدءًا من 60 $</div>
+                </div>
+                
+                <!-- خدمة 4 -->
+                <div class="fade-in-section" style="transition-delay: 0.3s;">
+                    <div class="service-card">
+                        <div class="service-icon bg-primary/10 text-primary">
+                            <i class="fas fa-icons"></i>
+                        </div>
+                        <h3 class="service-title" data-i18n="services.4.title">تصميم الشعارات الاحترافية</h3>
+                        <p class="service-description" data-i18n="services.4.description">
+                            تصميم شعارات مبتكرة تعبر عن هوية علامتك التجارية وتنقل رسالتك للجمهور المستهدف بفعالية.
+                        </p>
+                        <div class="service-price" data-i18n="services.4.price">بدءاً من 15$</div>
+                    </div>
+                </div>
+                
+                <!-- خدمة 5 -->
+                <div class="fade-in-section" style="transition-delay: 0.4s;">
+                    <div class="service-card">
+                        <div class="service-icon bg-secondary/10 text-secondary">
+                            <i class="fas fa-ad"></i>
+                        </div>
+                        <h3 class="service-title" data-i18n="services.5.title">تصميم الإعلانات والبوسترات</h3>
+                        <p class="service-description" data-i18n="services.5.description">
+                            إعلانات جذابة وملصقات إبداعية لمختلف المنصات لتعزيز حملاتك التسويقية وزيادة التفاعل معها.
+                        </p>
+                        <div class="service-price" data-i18n="services.5.price">بدءاً من 10$</div>
+                    </div>
+                </div>
+                
+                <!-- خدمة 6 -->
+                <div class="fade-in-section" style="transition-delay: 0.5s;">
+                    <div class="service-card">
+                        <div class="service-icon bg-accent/10 text-accent">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3 class="service-title" data-i18n="services.6.title">تصميم الكتب والمطبوعات</h3>
+                        <p class="service-description" data-i18n="services.6.description">
+                            تصميم وتخطيط احترافي للكتب والمجلات والمنشورات المطبوعة مع الحفاظ على جاذبية بصرية عالية.
+                        </p>
+                        <div class="service-price" data-i18n="services.6.price">بدءاً من 30$</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -641,708 +1656,1040 @@
     <!-- قسم معرض الأعمال -->
     <section id="portfolio" class="py-20 bg-white dark:bg-gray-800 relative overflow-hidden">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title">معرض أعمالي</h2>
-                <p class="section-subtitle">مجموعة مختارة من أحدث مشاريعي</p>
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="section-title" data-i18n="portfolio.title">معرض أعمالي</h2>
+                <p class="section-subtitle" data-i18n="portfolio.subtitle">مجموعة مختارة من أحدث مشاريعي</p>
             </div>
             
-            <!-- فلتر المشاريع -->
-            <div class="flex justify-center mb-12">
-                <div class="inline-flex bg-gray-100 dark:bg-gray-700 rounded-full p-1">
-                    <button type="button" class="filter-btn active" data-gallery="all">الكل</button>
-                    <button type="button" class="filter-btn" data-gallery="branding">هويات بصرية</button>
-                    <button type="button" class="filter-btn" data-gallery="uiux">واجهات مستخدم</button>
-                    <button type="button" class="filter-btn" data-gallery="motion">فيديوهات موشن جرافيك</button>
-                    <button type="button" class="filter-btn" data-gallery="posters">الإعلانات (بوستر)</button>
+            <!-- الأقسام الرئيسية -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- قسم الهويات البصرية -->
+                <div class="portfolio-category fade-in-section" data-category="branding">
+                    <div class="portfolio-category-item rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105">
+                        <img src="images/branding7.png" alt="هويات بصرية" class="w-full h-48 object-cover">
+                        <div class="p-4 bg-white dark:bg-gray-700">
+                            <h3 class="text-xl font-bold text-center text-gray-800 dark:text-white" data-i18n="portfolio.category1">هويات بصرية</h3>
+                            <p class="text-center text-gray-600 dark:text-gray-300 mt-2" data-i18n="portfolio.category1.count">15 مشروع</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- قسم واجهات المستخدم -->
+                <div class="portfolio-category fade-in-section" data-category="uiux">
+                    <div class="portfolio-category-item rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105">
+                        <img src="images/ui1.jpg" alt="واجهات مستخدم" class="w-full h-48 object-cover">
+                        <div class="p-4 bg-white dark:bg-gray-700">
+                            <h3 class="text-xl font-bold text-center text-gray-800 dark:text-white" data-i18n="portfolio.category2">واجهات مستخدم</h3>
+                            <p class="text-center text-gray-600 dark:text-gray-300 mt-2" data-i18n="portfolio.category2.count">1 مشروع</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- قسم الفيديوهات -->
+                <div class="portfolio-category fade-in-section" data-category="motion">
+                    <div class="portfolio-category-item rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105">
+                        <img src="images/motion1.jpg" alt="فيديوهات موشن جرافيك" class="w-full h-48 object-cover">
+                        <div class="p-4 bg-white dark:bg-gray-700">
+                            <h3 class="text-xl font-bold text-center text-gray-800 dark:text-white" data-i18n="portfolio.category3">فيديوهات موشن جرافيك</h3>
+                            <p class="text-center text-gray-600 dark:text-gray-300 mt-2" data-i18n="portfolio.category3.count">2 مشروع</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- قسم الإعلانات -->
+                <div class="portfolio-category fade-in-section" data-category="posters">
+                    <div class="portfolio-category-item rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105">
+                        <img src="images/poster14.png" alt="إعلانات" class="w-full h-48 object-cover">
+                        <div class="p-4 bg-white dark:bg-gray-700">
+                            <h3 class="text-xl font-bold text-center text-gray-800 dark:text-white" data-i18n="portfolio.category4">الإعلانات</h3>
+                            <p class="text-center text-gray-600 dark:text-gray-300 mt-2" data-i18n="portfolio.category4.count">15 مشروع</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <!-- المشاريع -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- مشروع 1 -->
-                <div class="portfolio-item branding" data-category="branding">
-                    <div class="relative rounded-2xl overflow-hidden group">
-                        <img src="images/designer.png" alt="تصميم هوية بصرية" class="w-full h-64 object-cover transition-all duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                <h3 class="text-xl font-semibold text-white mb-2">هوية بصرية لشركة تقنية</h3>
-                                <p class="text-gray-300 mb-4">تصميم شامل للهوية البصرية بما في ذلك الشعار والألوان والطباعة</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-sm text-gray-300">2022</span>
-                                    <a href="#" class="text-white hover:text-accent transition-colors text-xl">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- المعرض الجانبي -->
+            <div id="portfolioSidebar" class="fixed inset-y-0 right-0 w-full md:w-3/4 lg:w-1/2 bg-white dark:bg-gray-800 shadow-2xl z-[10000] overflow-auto transform translate-x-full transition-transform duration-300">
+                <div class="p-6">
+                    <button id="closePortfolio" class="absolute top-4 left-4 text-2xl text-gray-700 dark:text-gray-300 bg-transparent border-none cursor-pointer">&times;</button>
+                    <h2 id="portfolioTitle" class="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white"></h2>
+                    <div id="portfolioContent" class="grid grid-cols-1 sm:grid-cols-2 gap-6"></div>
                 </div>
-                
-                <!-- مشروع 2 -->
-                <div class="portfolio-item uiux" data-category="uiux">
-                    <div class="relative rounded-2xl overflow-hidden group">
-                        <img src="images/ui1.jpg" alt="تصميم واجهة مستخدم" class="w-full h-64 object-cover transition-all duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                <h3 class="text-xl font-semibold text-white mb-2">تصميم واجهة تطبيق موبايل</h3>
-                                <p class="text-gray-300 mb-4">تجربة مستخدم سلسة وجذابة لتطبيقات الهواتف الذكية</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-sm text-gray-300">2023</span>
-                                    <a href="#" class="text-white hover:text-accent transition-colors text-xl">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- مشروع 3 (تم التعديل لاستخدام <video> بدلاً من <iframe>) -->
-                <div class="portfolio-item motion" data-category="motion">
-                    <div class="relative rounded-2xl overflow-hidden group">
-                        <div class="video-container w-full h-64">
-                            <!-- Changed iframe to video tag -->
-                            <video controls preload="metadata" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110">
-                                <source src="images/motion1.mp4" type="video/mp4">
-                                متصفحك لا يدعم عنصر الفيديو.
-                            </video>
-                        </div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                <h3 class="text-xl font-semibold text-white mb-2">فيديو ترويجي لمنتج جديد</h3>
-                                <p class="text-gray-300 mb-4">إنتاج فيديو إعلاني لمنتج تقني جديد</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-sm text-gray-300">2025</span>
-                                    <!-- Removed the link as video controls are now built-in -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- تم إزالة عناصر البوستر من هنا -->
-
             </div>
         </div>
     </section>
 
-    <!-- نافذة العرض الجانبية للمعرض -->
-    <aside id="gallerySidebar" role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
-        <header>
-            <h3 id="galleryTitle" class="uppercase tracking-wide font-bold"></h3>
-            <button class="closeBtn" aria-label="إغلاق المعرض">&times;</button>
-        </header>
-        <div class="galleryContent"></div>
-    </aside>
-
     <!-- قسم آراء العملاء -->
-<section id="testimonials" class="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
-    <!-- تأثيرات خلفية دائرية -->
-    <div class="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-primary/10 blur-3xl animate-pulse-slow"></div>
-    <div class="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-secondary/10 blur-3xl animate-pulse-slow delay-1000"></div>
-    
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="text-center mb-16">
-            <h2 class="section-title">شهادات العملاء</h2>
-            <p class="section-subtitle">شوفوا شو قالوا عنّا الزباين</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- رأي 1 -->
-            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-                <div class="p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary">
-                            <img src="images/client1.jpg" alt="محمد من الإمارات" class="w-full h-full object-cover">
-                        </div>
-                        <div class="mr-3">
-                            <h4 class="font-bold text-gray-800 dark:text-white">محمد أبو عيسى</h4>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">الإمارات - قناة Design Pulse</p>
+    <section id="testimonials" class="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="section-title" data-i18n="testimonials.title">شهادات العملاء</h2>
+                <p class="section-subtitle" data-i18n="testimonials.subtitle">شوفوا شو قالوا عنّا الزباين</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- رأي 1 -->
+                <div class="fade-in-section">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text" data-i18n="testimonials.1.text">
+                                الهوية البصرية كانت بصراحة اشي بيرفكت ومرتب، عصرية ومش بحاجة لأي تعديل أو شغل في المستقبل
+                            </p>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="محمد من الإمارات">
+                                <div class="author-info">
+                                    <h4 data-i18n="testimonials.1.name">محمد أبو عيسى</h4>
+                                    <p data-i18n="testimonials.1.location">الإمارات - قناة Design Pulse</p>
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="relative">
-                        <div class="absolute -top-6 -right-2 text-6xl text-primary/10 dark:text-primary/20">”</div>
-                        <p class="text-gray-600 dark:text-gray-300 relative z-10">
-                            الهوية البصرية كانت بصراحة اشي بيرفكت ومرتب، عصرية ومش بحاجة لأي تعديل أو شغل في المستقبل
-                        </p>
+                </div>
+                
+                <!-- رأي 2 -->
+                <div class="fade-in-section" style="transition-delay: 0.1s;">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text" data-i18n="testimonials.2.text">
+                                ما شاء الله عليه أحمد، شغل نضيف ومتقن! عمللي إعلانات للمتجر صارت الناس 
+                                بتسأل إذا في خصم من كتر ما الإعلان حلو. والله من يومها والمبيعات بتزيد!
+                            </p>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80" alt="سارة من فلسطين">
+                                <div class="author-info">
+                                    <h4 data-i18n="testimonials.2.name">سارة النجار</h4>
+                                    <p data-i18n="testimonials.2.location">فلسطين - متجر إكسسوارات</p>
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mt-4 flex">
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                
+                <!-- رأي 3 -->
+                <div class="fade-in-section" style="transition-delay: 0.2s;">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text" data-i18n="testimonials.3.text">
+                                والله اشي صح ومونتاج مرتب ولوجو وبوسترات اشي مرتب كثير! بشجع اي حدا عدو شغل رقمي او شغل اونلاين يتعامل مع أحمد
+                            </p>
+                            <div class="testimonial-author">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="خالد من فلسطين">
+                                <div class="author-info">
+                                    <h4 data-i18n="testimonials.3.name">خالد الزغل</h4>
+                                    <p data-i18n="testimonials.3.location">فلسطين - قناة TrendVista</p>
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <!-- رأي 2 -->
-            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-                <div class="p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary">
-                            <img src="images/client2.jpg" alt="سارة من فلسطين" class="w-full h-full object-cover">
-                        </div>
-                        <div class="mr-3">
-                            <h4 class="font-bold text-gray-800 dark:text-white">سارة النجار</h4>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">فلسطين - متجر إكسسوارات</p>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="absolute -top-6 -right-2 text-6xl text-primary/10 dark:text-primary/20">”</div>
-                        <p class="text-gray-600 dark:text-gray-300 relative z-10">
-                            ما شاء الله عليه أحمد، شغل نضيف ومتقن! عمللي إعلانات للمتجر صارت الناس 
-                            بتسأل إذا في خصم من كتر ما الإعلان حلو. والله من يومها والمبيعات بتزيد!
-                        </p>
-                    </div>
-                    <div class="mt-4 flex">
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star-half-alt text-yellow-400"></i>
-                    </div>
-                </div>
+            <!-- شريط الشركات التي تعاملنا معها -->
+    <div class="mt-16 fade-in-section">
+        <h3 class="text-center text-xl font-bold text-gray-800 dark:text-white mb-8" data-i18n="testimonials.clients"> 
+            لنا الشرف أن نضع بصمتنا الإبداعية إلى جانب شركاء نثق برؤيتهم
+        </h3>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 bg-gray-100 dark:bg-gray-800 p-8 rounded-2xl">
+            <div class="bg-white dark:bg-gray-700 p-4 rounded-xl shadow-md flex items-center justify-center">
+                <img src="images/company1.png" alt="شريك 1" class="h-16 object-contain">
             </div>
-            
-            <!-- رأي 3 -->
-            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-                <div class="p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary">
-                            <img src="images/client3.jpg" alt="خالد من فلسطين" class="w-full h-full object-cover">
-                        </div>
-                        <div class="mr-3">
-                            <h4 class="font-bold text-gray-800 dark:text-white">خالد الزغل</h4>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">فلسطين - قناة TrendVista</p>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="absolute -top-6 -right-2 text-6xl text-primary/10 dark:text-primary/20">”</div>
-                        <p class="text-gray-600 dark:text-gray-300 relative z-10">
-                           والله اشي صح ومونتاج مرتب ولوجو وبوسترات اشي مرتب كثير! بشجع اي حدا عدو شغل رقمي او شغل اونلاين يتعامل مع أحمد
-                        </p>
-                    </div>
-                    <div class="mt-4 flex">
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </div>
-                </div>
+            <div class="bg-white dark:bg-gray-700 p-4 rounded-xl shadow-md flex items-center justify-center">
+                <img src="images/company2.png" alt="شريك 2" class="h-16 object-contain">
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-4 rounded-xl shadow-md flex items-center justify-center">
+                <img src="images/company3.png" alt="شريك 3" class="h-16 object-contain">
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-4 rounded-xl shadow-md flex items-center justify-center">
+                <img src="images/company4.png" alt="شريك 4" class="h-16 object-contain">
+            </div>
+            <div class="bg-white dark:bg-gray-700 p-4 rounded-xl shadow-md flex items-center justify-center">
+                <img src="images/company5.png" alt="شريك 5" class="h-16 object-contain">
             </div>
         </div>
-        
-<!-- شريط الشركات التي تعاملنا معها -->
-<div class="mt-16">
-    <h3 class="text-center text-xl font-bold text-gray-800 dark:text-white mb-8"> لنا الشرف أن نضع بصمتنا الإبداعية إلى جانب شركاء نثق برؤيتهم</h3>
-    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 bg-gray-100 dark:bg-gray-800 p-6 rounded-xl opacity-100 hover:opacity-90 transition-all">
-        <img src="images/company1.png" alt="مطعم نبض الجبل" class="h-20 md:h-24 object-contain grayscale hover:grayscale-0 drop-shadow-lg hover:drop-shadow-xl transition-all">
-        <img src="images/company2.png" alt="TrendVista" class="h-30 md:h-28 object-contain grayscale hover:grayscale-0 transition-all">
-        <img src="images/company3.png" alt="Design Pulse" class="h-30 md:h-28 object-contain grayscale hover:grayscale-0 transition-all">
-        <img src="images/company4.png" alt="Alramoony Coffee" class="h-20 md:h-24 object-contain grayscale hover:grayscale-0 transition-all">
-        <img src="images/company5.png" alt="Pal AccTech" class="h-20 md:h-24 object-contain grayscale hover:grayscale-0 drop-shadow-lg hover:drop-shadow-xl transition-all">
     </div>
-</div>
 </section>
 
     <!-- قسم بوابة الدفع -->
-    <section id="payment" class="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title">بوابة الدفع</h2>
-                <p class="section-subtitle">اختر طريقة الدفع المناسبة لك</p>
-            </div>
-            <div class="payment-card">
-                <div class="payment-method">
-                    <img src="images/paypal-logo.png" alt="PayPal" class="w-10 h-10">
-                    <span>باي بال</span>
-                </div>
-                <div class="payment-method">
-                    <i class="fas fa-credit-card"></i>
-                    <span>بطاقة ائتمان </span>
-                </div>
-                <div class="payment-method">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <span>تحويل بنكي</span>
+   <section id="payment" class="py-20 bg-white dark:bg-gray-800 relative overflow-hidden">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16 fade-in-section">
+            <h2 class="section-title" data-i18n="payment.title">بوابة الدفع</h2>
+            <p class="section-subtitle" data-i18n="payment.subtitle">اختر طريقة الدفع المناسبة لك</p>
+        </div>
+        
+        <div class="max-w-2xl mx-auto fade-in-section">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4" data-i18n="payment.amount">أدخل مبلغ الدفع</h3>
+                    <div class="mb-5">
+                        <label for="payment-amount" class="form-label" data-i18n="payment.amountLabel">المبلغ ($)</label>
+                        <input type="number" id="payment-amount" class="form-input" placeholder="أدخل المبلغ المراد دفعه" required min="1">
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4 mt-6" data-i18n="payment.methods">طرق الدفع</h3>
+                    <div class="space-y-4">
+                        <div class="payment-method">
+                            <i class="fab fa-paypal"></i>
+                            <span data-i18n="payment.method1">باي بال</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-credit-card"></i>
+                            <span data-i18n="payment.method2">بطاقة ائتمان</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-university"></i>
+                            <span data-i18n="payment.method3">تحويل بنكي</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary w-full mt-8">
+                        <span data-i18n="payment.button">إتمام عملية الدفع</span>
+                        <i class="fas fa-lock"></i>
+                    </button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- قسم التواصل -->
-    <section id="contact" class="py-20 bg-white dark:bg-gray-800 relative overflow-hidden">
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title">تواصل معي</h2>
-                <p class="section-subtitle">أنا هنا لمساعدتك في أي استفسار</p>
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="section-title" data-i18n="contact.title">تواصل معي</h2>
+                <p class="section-subtitle" data-i18n="contact.subtitle">أنا هنا لمساعدتك في أي استفسار <span class="wave-hand">👋</span></p>
             </div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>الهاتف: +970 598 137 633</span>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- معلومات التواصل -->
+                <div class="fade-in-section">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6" data-i18n="contact.infoTitle">بيانات التواصل</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed" data-i18n="contact.infoDescription">
+                        هل لديك مشروع تود مناقشته؟ أو ترغب في معرفة المزيد عن خدماتي؟ لا تتردد في التواصل معي عبر أي من الوسائل التالية، وسأكون سعيدًا بالرد عليك في أسرع وقت ممكن.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                <i class="fas fa-phone text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 dark:text-white" data-i18n="contact.phone">الهاتف</h4>
+                                <p class="text-gray-600 dark:text-gray-300">+970 598 137 633</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-full bg-green-500/10 flex items-center justify-center">
+                                <i class="fab fa-whatsapp text-green-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 dark:text-white" data-i18n="contact.whatsapp">واتساب</h4>
+                                <p class="text-gray-600 dark:text-gray-300">+972 598 137 633</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-full bg-blue-500/10 flex items-center justify-center">
+                                <i class="fas fa-envelope text-blue-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 dark:text-white" data-i18n="contact.email">البريد الإلكتروني</h4>
+                                <p class="text-gray-600 dark:text-gray-300">aalqadomi02@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-full bg-purple-500/10 flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-purple-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 dark:text-white" data-i18n="contact.location">الموقع</h4>
+                                <p class="text-gray-600 dark:text-gray-300">فلسطين - رام الله</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold text-gray-800 dark:text-white mb-4" data-i18n="contact.hours">ساعات العمل</h4>
+                        <div class="flex justify-between border-b border-gray-200 dark:border-gray-700 py-2">
+                            <span data-i18n="contact.weekdays">الأحد - الخميس</span>
+                            <span class="text-gray-600 dark:text-gray-300">9:00 ص - 5:00 م</span>
+                        </div>
+                        <div class="flex justify-between py-2">
+                            <span data-i18n="contact.weekend">الجمعة - السبت</span>
+                            <span class="text-gray-600 dark:text-gray-300" data-i18n="contact.weekendHours">إجازة</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>واتساب: +972 598 137 633</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>البريد الإلكتروني: aalqadomi02@gmail.com</span>
-                </div>
-            </div>
 
-            <!-- Contact Form -->
-            <div class="max-w-lg mx-auto mt-12 p-8 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 text-center">أرسل لي رسالة</h3>
-                <form id="contactForm" action="https://formspree.io/f/xvgrvdwj" method="POST" enctype="multipart/form-data">
-                    <div class="mb-4">
-                        <label for="name" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">الاسم:</label>
-                        <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-600 dark:text-white dark:border-gray-500" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="email" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">البريد الإلكتروني:</label>
-                        <input type="email" id="email" name="_replyto" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-600 dark:text-white dark:border-gray-500" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="message" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">الرسالة:</label>
-                        <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-600 dark:text-white dark:border-gray-500" required></textarea>
-                    </div>
-                    <div class="mb-6">
-                        <label for="attachment" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">إرفاق ملف (اختياري):</label>
-                        <input type="file" id="attachment" name="attachment" class="block w-full text-sm text-gray-700 dark:text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary/90">
-                    </div>
-                    <div class="flex items-center justify-center">
-                        <button type="submit" class="btn-primary w-full">
-                            <span>إرسال الرسالة</span>
-                            <i class="fas fa-paper-plane mr-2"></i>
-                        </button>
-                    </div>
-                </form>
+                <!-- نموذج التواصل -->
+            <!-- نموذج التواصل -->
+<div class="fade-in-section">
+    <div class="contact-form">
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 text-center" data-i18n="contact.formTitle">أرسل لي رسالة</h3>
+        <form id="contactForm">
+            <div class="mb-5">
+                <label for="name" class="form-label" data-i18n="contact.formName">الاسم الكامل</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="أدخل اسمك الكامل" required>
+            </div>
+            
+            <div class="mb-5">
+                <label for="email" class="form-label" data-i18n="contact.formEmail">البريد الإلكتروني</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="أدخل بريدك الإلكتروني" required>
+            </div>
+            
+            <div class="mb-5">
+                <label for="subject" class="form-label" data-i18n="contact.formSubject">الموضوع</label>
+                <input type="text" id="subject" name="_subject" class="form-input" placeholder="موضوع الرسالة" required>
+            </div>
+            
+            <div class="mb-5">
+                <label for="message" class="form-label" data-i18n="contact.formMessage">الرسالة</label>
+                <textarea id="message" name="message" class="form-input form-textarea" placeholder="أدخل رسالتك هنا..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-primary w-full">
+                <span data-i18n="contact.formButton">إرسال الرسالة</span>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+</div>
             </div>
         </div>
     </section>
 
     <!-- تذييل الصفحة -->
-    <footer class="py-6 bg-gray-800 text-white text-center">
-        <p>جميع الحقوق محفوظة &copy; Ahmad Amer 2025</p>
+    <footer class="pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="footer-content">
+                <a href="#" class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <span>أحمد عامر</span>
+                </a>
+                
+                <p class="text-gray-300 max-w-2xl text-center" data-i18n="footer.description">
+                    مصمم جرافيك محترف متخصص في إنشاء هويات بصرية جذابة وتصميم واجهات المستخدم وإنتاج فيديوهات الموشن جرافيك، أعمل مع عملائي لتحويل أفكارهم إلى واقع مرئي مذهل.
+                </p>
+                
+                <div class="footer-links">
+                    <a href="#about" data-i18n="nav.about">عني</a>
+                    <a href="#services" data-i18n="nav.services">خدماتي</a>
+                    <a href="#portfolio" data-i18n="nav.portfolio">معرض الأعمال</a>
+                    <a href="#testimonials" data-i18n="nav.testimonials">آراء العملاء</a>
+                    <a href="#payment" data-i18n="nav.payment">بوابة الدفع</a>
+                    <a href="#contact" data-i18n="nav.contact">تواصل معي</a>
+                </div>
+                
+            <div class="social-links">
+                <a href="https://www.facebook.com/ahmad.alqadomi.496668/" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/alqadomi_ahmad/" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ahmad-amer-7740bb311" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+                
+                <div class="copyright">
+                    <p data-i18n="footer.copyright">جميع الحقوق محفوظة &copy; <span class="text-primary">Ahmad Amer</span> 2025</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- سكربت -->
     <script>
-        const galleries = {
-            branding: {
-                title: "معرض الهويات البصرية",
-                images: [
-                    "images/branding1.png",
-                    "images/branding2.png",
-                    "images/branding3.png",
-                    "images/branding4.png",
-                    "images/branding5.png",
-                    "images/branding6.png",
-                    "images/branding7.png",
-                    "images/branding8.png",
-                    "images/branding9.png",
-                    "images/branding10.png",
-                    "images/branding11.png",
-                    "images/branding12.png",
-                    "images/branding13.png",
-                    "images/branding14.png",
-                    "images/branding15.png"
-                ]
+        // نظام الترجمة متعدد اللغات
+        const translations = {
+            ar: {
+                // التنقل
+                "nav.about": "عني",
+                "nav.services": "خدماتي",
+                "nav.portfolio": "معرض الأعمال",
+                "nav.testimonials": "آراء العملاء",
+                "nav.payment": "بوابة الدفع",
+                "nav.contact": "تواصل معي",
+                "nav.theme": "تبديل الثيم",
+                "lang.ar": "العربية",
+                "lang.en": "الإنجليزية",
+                "lang.ja": "اليابانية",
+                
+                // القسم الرئيسي
+                "hero.title": "تصاميم إبداعية",
+                "hero.subtitle": "تعزز حضورك الرقمي",
+                "hero.description": "مصمم جرافيك محترف بخبرة 5+ سنوات، أقدم حلولاً بصرية مبتكرة تلبي احتياجات عملك وتبرز هويتك الفريدة",
+                "hero.button1": "استعرض أعمالي",
+                "hero.button2": "لنعمل معًا",
+                "hero.stats1": "مشروع مكتمل",
+                "hero.stats2": "عميل راضي",
+                "hero.stats3": "شهادات معتمدة",
+                "hero.badge": "مصمم معتمد",
+                
+                // قسم عني
+                "about.title": "من أنا؟",
+                "about.subtitle": "سعادتي تكمن في تحويل الأفكار إلى واقع مرئي مؤثر",
+                "about.name": "أحمد عامر، مصمم جرافيك محترف",
+                "about.description": "مع درجة البكالوريوس في علم الحاسوب، ودورات مكثفة في مجال التصميم الجرافيكي مع شهادات معتمدة وخبرة تمتد لأكثر من 5 سنوات في مجال التصميم والإبداع، أمتلك القدرة على تحويل الأفكار والمفاهيم المجردة إلى تصميمات مرئية جذابة وفعالة. تخصصت في تصميم الهويات البصرية والمواد التسويقية وتجربة المستخدم.",
+                "about.skillsTitle": "مجالات تخصصي:",
+                "skills.1": "تصميم الهوية البصرية",
+                "skills.2": "واجهات المستخدم",
+                "skills.3": "موشن جرافيك",
+                "skills.4": "تصميم الكتب والمجلات",
+                "skills.5": "إعلانات التسويق",
+                "skills.6": "تصميم الشعارات",
+                "skills.7": "التصميم الطباعي",
+                "skills.8": "إنفوجرافيك",
+                "about.button1": "تواصل معي",
+                "about.button2": "تحميل السيرة الذاتية",
+                
+                // قسم الخدمات
+                "services.title": "خدماتي الاحترافية",
+                "services.subtitle": "حلول تصميمية متكاملة تلبي كافة احتياجاتك",
+                "services.1.title": "تصميم الهوية البصرية",
+                "services.1.description": "تصميم متكامل للهوية البصرية يشمل الشعار والألوان والطباعة والاستخدامات المختلفة مع دليل شامل للهوية.",
+                "services.1.price": "بدءاً من 20$",
+                "services.2.title": "تصميم واجهات التطبيقات",
+                "services.2.description": "تصميم واجهات مستخدم جذابة وسهلة الاستخدام لتطبيقات الجوال مع مراعاة أفضل ممارسات تجربة المستخدم.",
+                "services.2.price": "بدءًا من 40$",
+                "services.3.title": "تصميم فيديوهات موشن جرافيك",
+                "services.3.description": "إنتاج فيديوهات إبداعية مع موشن جرافيك لإيصال رسالتك بطريقة جذابة وتفاعلية تلائم المنصات المختلفة.",
+                "services.3.price": "بدءًا من 60$",
+                "services.4.title": "تصميم الشعارات الاحترافية",
+                "services.4.description": "تصميم شعارات مبتكرة تعبر عن هوية علامتك التجارية وتنقل رسالتك للجمهور المستهدف بفعالية.",
+                "services.4.price": "بدءاً من 15$",
+                "services.5.title": "تصميم الإعلانات والبوسترات",
+                "services.5.description": "إعلانات جذابة وملصقات إبداعية لمختلف المنصات لتعزيز حملاتك التسويقية وزيادة التفاعل معها.",
+                "services.5.price": "بدءاً من 10$",
+                "services.6.title": "تصميم الكتب والمطبوعات",
+                "services.6.description": "تصميم وتخطيط احترافي للكتب والمجلات والمنشورات المطبوعة مع الحفاظ على جاذبية بصرية عالية.",
+                "services.6.price": "بدءاً من 30$",
+                
+                // قسم معرض الأعمال
+                "portfolio.title": "معرض أعمالي",
+                "portfolio.subtitle": "مجموعة مختارة من أحدث مشاريعي",
+                "portfolio.category1": "هويات بصرية",
+                "portfolio.category1.count": "15 مشروع",
+                "portfolio.category2": "واجهات مستخدم",
+                "portfolio.category2.count": "1 مشروع",
+                "portfolio.category3": "فيديوهات موشن جرافيك",
+                "portfolio.category3.count": "2 مشروع",
+                "portfolio.category4": "الإعلانات",
+                "portfolio.category4.count": "15 مشروع",
+                
+                // قسم آراء العملاء
+                "testimonials.title": "شهادات العملاء",
+                "testimonials.subtitle": "شوفوا شو قالوا عنّا الزباين",
+                "testimonials.clients": "لنا الشرف أن نضع بصمتنا الإبداعية إلى جانب شركاء نثق برؤيتهم",
+                "testimonials.1.text": "الهوية البصرية كانت بصراحة اشي بيرفكت ومرتب، عصرية ومش بحاجة لأي تعديل أو شغل في المستقبل",
+                "testimonials.1.name": "محمد أبو عيسى",
+                "testimonials.1.location": "الإمارات - قناة Design Pulse",
+                "testimonials.2.text": "ما شاء الله عليه أحمد، شغل نضيف ومتقن! عمللي إعلانات للمتجر صارت الناس بتسأل إذا في خصم من كتر ما الإعلان حلو. والله من يومها والمبيعات بتزيد!",
+                "testimonials.2.name": "سارة النجار",
+                "testimonials.2.location": "فلسطين - متجر إكسسوارات",
+                "testimonials.3.text": "والله اشي صح ومونتاج مرتب ولوجو وبوسترات اشي مرتب كثير! بشجع اي حدا عدو شغل رقمي او شغل اونلاين يتعامل مع أحمد",
+                "testimonials.3.name": "خالد الزغل",
+                "testimonials.3.location": "فلسطين - قناة TrendVista",
+                
+                // قسم بوابة الدفع
+                "payment.title": "بوابة الدفع",
+                "payment.subtitle": "اختر طريقة الدفع المناسبة لك",
+                "payment.amount": "أدخل مبلغ الدفع",
+                "payment.amountLabel": "المبلغ ($)",
+                "payment.methods": "طرق الدفع",
+                "payment.method1": "باي بال",
+                "payment.method2": "بطاقة ائتمان",
+                "payment.method3": "تحويل بنكي",
+                "payment.button": "إتمام عملية الدفع",
+                
+                // قسم التواصل
+                "contact.title": "تواصل معي",
+                "contact.subtitle": "أنا هنا لمساعدتك في أي استفسار",
+                "contact.infoTitle": "بيانات التواصل",
+                "contact.infoDescription": "هل لديك مشروع تود مناقشته؟ أو ترغب في معرفة المزيد عن خدماتي؟ لا تتردد في التواصل معي عبر أي من الوسائل التالية، وسأكون سعيدًا بالرد عليك في أسرع وقت ممكن.",
+                "contact.phone": "الهاتف",
+                "contact.whatsapp": "واتساب",
+                "contact.email": "البريد الإلكتروني",
+                "contact.location": "الموقع",
+                "contact.hours": "ساعات العمل",
+                "contact.weekdays": "الأحد - الخميس",
+                "contact.weekend": "الجمعة - السبت",
+                "contact.weekendHours": "إجازة",
+                "contact.formTitle": "أرسل لي رسالة",
+                "contact.formName": "الاسم الكامل",
+                "contact.formEmail": "البريد الإلكتروني",
+                "contact.formSubject": "الموضوع",
+                "contact.formMessage": "الرسالة",
+                "contact.formButton": "إرسال الرسالة",
+                
+                // تذييل الصفحة
+                "footer.description": "مصمم جرافيك محترف متخصص في إنشاء هويات بصرية جذابة وتصميم واجهات المستخدم وإنتاج فيديوهات الموشن جرافيك، أعمل مع عملائي لتحويل أفكارهم إلى واقع مرئي مذهل.",
+                "footer.copyright": "جميع الحقوق محفوظة &copy; Ahmad Amer 2025"
             },
-            uiux: {
-                title: "معرض واجهات المستخدم",
-                images: [
-                    "images/ui1.jpg"
-                ]
+            en: {
+                // Navigation
+                "nav.about": "About",
+                "nav.services": "Services",
+                "nav.portfolio": "Portfolio",
+                "nav.testimonials": "Testimonials",
+                "nav.payment": "Payment",
+                "nav.contact": "Contact",
+                "nav.theme": "Toggle Theme",
+                "lang.ar": "Arabic",
+                "lang.en": "English",
+                "lang.ja": "Japanese",
+                
+                // Hero Section
+                "hero.title": "Creative Designs",
+                "hero.subtitle": "Enhancing Your Digital Presence",
+                "hero.description": "Professional graphic designer with 5+ years of experience, offering innovative visual solutions that meet your business needs and highlight your unique identity",
+                "hero.button1": "View My Work",
+                "hero.button2": "Let's Work Together",
+                "hero.stats1": "Completed Projects",
+                "hero.stats2": "Satisfied Clients",
+                "hero.stats3": "Certifications",
+                "hero.badge": "Certified Designer",
+                
+                // About Section
+                "about.title": "Who Am I?",
+                "about.subtitle": "My passion is turning ideas into impactful visual reality",
+                "about.name": "Ahmad Amer, Professional Graphic Designer",
+                "about.description": "With a Bachelor's degree in Computer Science, intensive courses in graphic design with certified qualifications, and over 5 years of experience in design and creativity, I have the ability to transform abstract ideas and concepts into attractive and effective visual designs. I specialize in visual identity design, marketing materials, and user experience.",
+                "about.skillsTitle": "My Specializations:",
+                "skills.1": "Visual Identity Design",
+                "skills.2": "User Interfaces",
+                "skills.3": "Motion Graphics",
+                "skills.4": "Book & Magazine Design",
+                "skills.5": "Marketing Ads",
+                "skills.6": "Logo Design",
+                "skills.7": "Typography Design",
+                "skills.8": "Infographics",
+                "about.button1": "Contact Me",
+                "about.button2": "Download CV",
+                
+                // Services Section
+                "services.title": "My Professional Services",
+                "services.subtitle": "Comprehensive design solutions for all your needs",
+                "services.1.title": "Visual Identity Design",
+                "services.1.description": "Complete visual identity design including logo, colors, typography, and various applications with a comprehensive identity guide.",
+                "services.1.price": "Starting from $20",
+                "services.2.title": "App Interface Design",
+                "services.2.description": "Attractive and user-friendly mobile app interfaces following best UX practices.",
+                "services.2.price": "Starting from $40",
+                "services.3.title": "Motion Graphics Videos",
+                "services.3.description": "Creative videos with motion graphics to deliver your message in an engaging and interactive way suitable for different platforms.",
+                "services.3.price": "Starting from $60",
+                "services.4.title": "Professional Logo Design",
+                "services.4.description": "Innovative logo designs that express your brand identity and effectively communicate your message to your target audience.",
+                "services.4.price": "Starting from $15",
+                "services.5.title": "Ads & Posters Design",
+                "services.5.description": "Attractive advertisements and creative posters for various platforms to enhance your marketing campaigns and increase engagement.",
+                "services.5.price": "Starting from $10",
+                "services.6.title": "Books & Prints Design",
+                "services.6.description": "Professional design and layout for books, magazines, and printed publications while maintaining high visual appeal.",
+                "services.6.price": "Starting from $30",
+                
+                // Portfolio Section
+                "portfolio.title": "My Portfolio",
+                "portfolio.subtitle": "A selection of my latest projects",
+                "portfolio.category1": "Visual Identities",
+                "portfolio.category1.count": "15 Projects",
+                "portfolio.category2": "User Interfaces",
+                "portfolio.category2.count": "1 Project",
+                "portfolio.category3": "Motion Graphics",
+                "portfolio.category3.count": "2 Projects",
+                "portfolio.category4": "Advertisements",
+                "portfolio.category4.count": "15 Projects",
+                
+                // Testimonials Section
+                "testimonials.title": "Client Testimonials",
+                "testimonials.subtitle": "See what our clients say about us",
+                "testimonials.clients": "We're honored to put our creative mark alongside partners we trust",
+                "testimonials.1.text": "The visual identity was absolutely perfect and organized, modern and doesn't need any future modifications.",
+                "testimonials.1.name": "Mohammed Abou Eissa",
+                "testimonials.1.location": "UAE - Design Pulse Channel",
+                "testimonials.2.text": "Ahmad does excellent work! He created ads for my store that were so good people kept asking about discounts. Sales have been increasing ever since!",
+                "testimonials.2.name": "Sara Al-Najjar",
+                "testimonials.2.location": "Palestine - Accessories Store",
+                "testimonials.3.text": "Everything was perfect - editing, logo, posters! I highly recommend anyone doing digital work to deal with Ahmad.",
+                "testimonials.3.name": "Khaled Al-Zaghl",
+                "testimonials.3.location": "Palestine - TrendVista Channel",
+                
+                // Payment Section
+                "payment.title": "Payment Gateway",
+                "payment.subtitle": "Choose your preferred payment method",
+                "payment.amount": "Enter Payment Amount",
+                "payment.amountLabel": "Amount ($)",
+                "payment.methods": "Payment Methods",
+                "payment.method1": "PayPal",
+                "payment.method2": "Credit Card",
+                "payment.method3": "Bank Transfer",
+                "payment.button": "Complete Payment",
+                
+                // Contact Section
+                "contact.title": "Contact Me",
+                "contact.subtitle": "I'm here to help with any inquiries",
+                "contact.infoTitle": "Contact Information",
+                "contact.infoDescription": "Do you have a project to discuss? Or want to know more about my services? Feel free to contact me through any of the following methods, and I'll be happy to respond as soon as possible.",
+                "contact.phone": "Phone",
+                "contact.whatsapp": "WhatsApp",
+                "contact.email": "Email",
+                "contact.location": "Location",
+                "contact.hours": "Working Hours",
+                "contact.weekdays": "Sunday - Thursday",
+                "contact.weekend": "Friday - Saturday",
+                "contact.weekendHours": "Weekend",
+                "contact.formTitle": "Send Me a Message",
+                "contact.formName": "Full Name",
+                "contact.formEmail": "Email Address",
+                "contact.formSubject": "Subject",
+                "contact.formMessage": "Message",
+                "contact.formButton": "Send Message",
+                
+                // Footer
+                "footer.description": "Professional graphic designer specializing in creating attractive visual identities, user interface design, and motion graphics videos. I work with clients to transform their ideas into stunning visual reality.",
+                "footer.copyright": "All rights reserved &copy; Ahmad Amer 2025"
             },
-            motion: {
-                title: "فيديوهات الموشن جرافيك",
-                videos: [
-                    {
-                        thumbnail: "images/motion1.jpg",
-                        url: "images/motion1.mp4"
-                    }
-                ]
-            },
-            posters: { // New gallery for posters
-                title: "معرض الإعلانات (بوستر)",
-                images: [
-                    "images/poster1.png",
-                    "images/poster2.png",
-                    "images/poster3.png",
-                    "images/poster4.png",
-                    "images/poster5.png",
-                    "images/poster6.png",
-                    "images/poster7.png",
-                    "images/poster8.jpg",
-                    "images/poster9.png",
-                    "images/poster10.png",
-                    "images/poster11.png",
-                    "images/poster12.png",
-                    "images/poster13.png",
-                    "images/poster14.png",
-                    "images/poster15.png"
-                ]
+            ja: {
+                // ナビゲーション
+                "nav.about": "私について",
+                "nav.services": "サービス",
+                "nav.portfolio": "ポートフォリオ",
+                "nav.testimonials": "お客様の声",
+                "nav.payment": "支払い",
+                "nav.contact": "お問い合わせ",
+                "nav.theme": "テーマ切り替え",
+                "lang.ar": "アラビア語",
+                "lang.en": "英語",
+                "lang.ja": "日本語",
+                
+                // ヒーローセクション
+                "hero.title": "創造的なデザイン",
+                "hero.subtitle": "デジタルプレゼンスを高める",
+                "hero.description": "5年以上の経験を持つプロのグラフィックデザイナー。ビジネスニーズを満たし、独自のアイデンティティを際立たせる革新的なビジュアルソリューションを提供します",
+                "hero.button1": "作品を見る",
+                "hero.button2": "一緒に働きましょう",
+                "hero.stats1": "完了プロジェクト",
+                "hero.stats2": "満足したクライアント",
+                "hero.stats3": "認定資格",
+                "hero.badge": "認定デザイナー",
+                
+                // アバウトセクション
+                "about.title": "私について",
+                "about.subtitle": "アイデアを視覚的な現実に変えることに喜びを見出しています",
+                "about.name": "アハメド・アメール、プロのグラフィックデザイナー",
+                "about.description": "コンピュータサイエンスの学士号、認定資格を持つグラフィックデザインの集中コース、および5年以上のデザインと創造性の経験を持ち、抽象的なアイデアや概念を魅力的で効果的な視覚的デザインに変換する能力を備えています。視覚的アイデンティティデザイン、マーケティング資料、ユーザーエクスペリエンスを専門としています。",
+                "about.skillsTitle": "私の専門分野:",
+                "skills.1": "視覚的アイデンティティデザイン",
+                "skills.2": "ユーザーインターフェース",
+                "skills.3": "モーショングラフィックス",
+                "skills.4": "書籍・雑誌デザイン",
+                "skills.5": "マーケティング広告",
+                "skills.6": "ロゴデザイン",
+                "skills.7": "タイポグラフィデザイン",
+                "skills.8": "インフォグラフィック",
+                "about.button1": "お問い合わせ",
+                "about.button2": "履歴書をダウンロード",
+                
+                // サービスセクション
+                "services.title": "プロフェッショナルサービス",
+                "services.subtitle": "すべてのニーズに応える包括的なデザインソリューション",
+                "services.1.title": "視覚的アイデンティティデザイン",
+                "services.1.description": "ロゴ、色、タイポグラフィ、さまざまなアプリケーションを含む完全な視覚的アイデンティティデザインと包括的なアイデンティティガイド。",
+                "services.1.price": "20ドルから",
+                "services.2.title": "アプリインターフェースデザイン",
+                "services.2.description": "最高のUXプラクティスに基づいた魅力的で使いやすいモバイルアプリインターフェース。",
+                "services.2.price": "40ドルから",
+                "services.3.title": "モーショングラフィックスビデオ",
+                "services.3.description": "さまざまなプラットフォームに適した魅力的でインタラクティブな方法でメッセージを伝える創造的なモーショングラフィックスビデオ。",
+                "services.3.price": "60ドルから",
+                "services.4.title": "プロフェッショナルロゴデザイン",
+                "services.4.description": "ブランドのアイデンティティを表現し、ターゲットオーディエンスに効果的にメッセージを伝える革新的なロゴデザイン。",
+                "services.4.price": "15ドルから",
+                "services.5.title": "広告＆ポスターデザイン",
+                "services.5.description": "マーケティングキャンペーンを強化し、エンゲージメントを高めるためのさまざまなプラットフォーム向けの魅力的な広告と創造的なポスター。",
+                "services.5.price": "10ドルから",
+                "services.6.title": "書籍＆印刷物デザイン",
+                "services.6.description": "高い視覚的魅力を維持しながら、書籍、雑誌、印刷出版物のプロフェッショナルなデザインとレイアウト。",
+                "services.6.price": "30ドルから",
+                
+                // ポートフォリオセクション
+                "portfolio.title": "私のポートフォリオ",
+                "portfolio.subtitle": "最新のプロジェクトのセレクション",
+                "portfolio.category1": "視覚的アイデンティティ",
+                "portfolio.category1.count": "15 プロジェクト",
+                "portfolio.category2": "ユーザーインターフェース",
+                "portfolio.category2.count": "1 プロジェクト",
+                "portfolio.category3": "モーショングラフィックス",
+                "portfolio.category3.count": "2 プロジェクト",
+                "portfolio.category4": "広告",
+                "portfolio.category4.count": "15 プロジェクト",
+                
+                // お客様の声セクション
+                "testimonials.title": "お客様の声",
+                "testimonials.subtitle": "お客様が私たちについて言っていることを見てください",
+                "testimonials.clients": "信頼できるパートナーと共に創造的な印を残すことを光栄に思います",
+                "testimonials.1.text": "視覚的アイデンティティは完璧で整理されており、現代的で将来の修正は必要ありませんでした。",
+                "testimonials.1.name": "モハメド・アブー・アイッサ",
+                "testimonials.1.location": "アラブ首長国連邦 - デザインパルスチャンネル",
+                "testimonials.2.text": "アハメドは素晴らしい仕事をします！彼が私の店のために作成した広告はとても良かったので、人々は割引について尋ね続けました。それ以来、売上は増え続けています！",
+                "testimonials.2.name": "サラ・アルナジャール",
+                "testimonials.2.location": "パレスチナ - アクセサリーストア",
+                "testimonials.3.text": "編集、ロゴ、ポスター、すべてが完璧でした！デジタルワークを行う方は誰でもアハメドと取引することを強くお勧めします。",
+                "testimonials.3.name": "ハレド・アルザグル",
+                "testimonials.3.location": "パレスチナ - トレンドビスタチャンネル",
+                
+                // 支払いセクション
+                "payment.title": "支払いゲートウェイ",
+                "payment.subtitle": "お好みの支払い方法を選択してください",
+                "payment.amount": "支払金額を入力",
+                "payment.amountLabel": "金額 ($)",
+                "payment.methods": "支払い方法",
+                "payment.method1": "PayPal",
+                "payment.method2": "クレジットカード",
+                "payment.method3": "銀行振込",
+                "payment.button": "支払いを完了する",
+                
+                // お問い合わせセクション
+                "contact.title": "お問い合わせ",
+                "contact.subtitle": "どんなご質問でもお手伝いします",
+                "contact.infoTitle": "連絡先情報",
+                "contact.infoDescription": "ご相談したいプロジェクトはありますか？それとも私のサービスについてもっと知りたいですか？以下のいずれかの方法でお気軽にお問い合わせください。できるだけ早く対応いたします。",
+                "contact.phone": "電話",
+                "contact.whatsapp": "WhatsApp",
+                "contact.email": "メール",
+                "contact.location": "所在地",
+                "contact.hours": "営業時間",
+                "contact.weekdays": "日曜日 - 木曜日",
+                "contact.weekend": "金曜日 - 土曜日",
+                "contact.weekendHours": "週末",
+                "contact.formTitle": "メッセージを送る",
+                "contact.formName": "フルネーム",
+                "contact.formEmail": "メールアドレス",
+                "contact.formSubject": "件名",
+                "contact.formMessage": "メッセージ",
+                "contact.formButton": "メッセージを送信",
+                
+                // フッター
+                "footer.description": "魅力的な視覚的アイデンティティ、ユーザーインターフェイスデザイン、モーショングラフィックスビデオの作成を専門とするプロのグラフィックデザイナー。クライアントと協力してアイデアを素晴らしい視覚的現実に変えます。",
+                "footer.copyright": "全著作権所有 &copy; Ahmad Amer 2025"
             }
         };
 
-        const gallerySidebar = document.getElementById("gallerySidebar");
-        const galleryTitle = gallerySidebar.querySelector("header h3");
-        const galleryContent = gallerySidebar.querySelector(".galleryContent");
-        const closeBtn = gallerySidebar.querySelector(".closeBtn");
-        const filterBtns = document.querySelectorAll(".filter-btn");
+        // تحديد لغة المتصفح الافتراضية
+        const defaultLang = 'ar';
+        let currentLang = defaultLang;
 
-        function openGallery(type) {
-            galleryContent.innerHTML = "";
-            const gallery = galleries[type];
-            if (!gallery) return;
-
-            galleryTitle.textContent = gallery.title;
-
-            if (gallery.images) {
-                gallery.images.forEach((src) => {
-                    const img = document.createElement("img");
-                    img.src = src;
-                    img.alt = gallery.title;
-                    img.tabIndex = 0;
-                    img.addEventListener("click", () => openImageModal(src));
-                    img.addEventListener("keypress", (e) => {
-                        if (e.key === "Enter") openImageModal(src);
-                    });
-                    galleryContent.appendChild(img);
-                });
-            } else if (gallery.videos) {
-                gallery.videos.forEach(({ thumbnail, url }) => {
-                    const div = document.createElement("div");
-                    div.classList.add("relative", "cursor-pointer");
-                    const img = document.createElement("img");
-                    img.src = thumbnail;
-                    img.alt = gallery.title + " فيديو";
-                    img.tabIndex = 0;
-                    img.className = "rounded-md";
-                    div.appendChild(img);
-                    const playIcon = document.createElement("i");
-                    playIcon.className =
-                        "fas fa-play-circle absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-5xl drop-shadow-lg";
-                    div.appendChild(playIcon);
-
-                    div.addEventListener("click", () => openVideoModal(url));
-                    div.addEventListener("keypress", (e) => {
-                        if (e.key === "Enter") openVideoModal(url);
-                    });
-                    galleryContent.appendChild(div);
-                });
+        // دالة لتحديد لغة المستخدم بناءً على الموقع الجغرافي
+        function detectUserLanguage() {
+            // أولاً: التحقق من وجود لغة مخزنة في localStorage
+            const savedLang = localStorage.getItem('userLanguage');
+            if (savedLang) {
+                return savedLang;
             }
-
-            gallerySidebar.classList.add("open");
-            document.body.style.overflow = "hidden";
-        }
-
-        function closeGallery() {
-            gallerySidebar.classList.remove("open");
-            galleryContent.innerHTML = "";
-            document.body.style.overflow = "";
-            closeModal();
-        }
-
-        closeBtn.addEventListener("click", closeGallery);
-
-        filterBtns.forEach((btn) => {
-            btn.addEventListener("click", () => {
-                filterBtns.forEach((b) => b.classList.remove("active"));
-                btn.classList.add("active");
-                openGallery(btn.getAttribute("data-gallery"));
-            });
-        });
-
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && gallerySidebar.classList.contains("open")) {
-                closeGallery();
-            }
-        });
-
-        let modalOverlay, modalContent, closeModalBtn;
-
-        function createModal() {
-            // إذا كان الـ modal موجودًا بالفعل، لا تقم بإنشائه مرة أخرى
-            if (modalOverlay) return; 
-
-            modalOverlay = document.createElement("div");
-            modalOverlay.style.position = "fixed";
-            modalOverlay.style.top = 0;
-            modalOverlay.style.left = 0;
-            modalOverlay.style.width = "100%";
-            modalOverlay.style.height = "100%";
-            modalOverlay.style.backgroundColor = "rgba(0,0,0,0.85)";
-            modalOverlay.style.display = "flex";
-            modalOverlay.style.justifyContent = "center";
-            modalOverlay.style.alignItems = "center";
-            modalOverlay.style.zIndex = 1100;
-            modalOverlay.style.opacity = 0;
-            modalOverlay.style.transition = "opacity 0.3s ease";
-            modalOverlay.tabIndex = -1;
-            modalOverlay.classList.add('modal-overlay'); // Add class for potential CSS styling
-
-            modalContent = document.createElement("div");
-            modalContent.style.position = "relative";
-            modalContent.style.maxWidth = "90vw";
-            modalContent.style.maxHeight = "90vh";
-            modalContent.style.outline = "none";
-            modalContent.classList.add('modal-content'); // Add class for potential CSS styling
-            modalOverlay.appendChild(modalContent);
-
-            closeModalBtn = document.createElement("button");
-            closeModalBtn.innerHTML = "&times;";
-            closeModalBtn.style.position = "absolute";
-            closeModalBtn.style.top = "10px";
-            closeModalBtn.style.right = "10px";
-            closeModalBtn.style.color = "white";
-            closeModalBtn.style.fontSize = "2rem";
-            closeModalBtn.style.background = "none";
-            closeModalBtn.style.border = "none";
-            closeModalBtn.style.cursor = "pointer";
-            closeModalBtn.style.padding = "0";
-            closeModalBtn.style.lineHeight = "1";
-            modalContent.appendChild(closeModalBtn);
-
-            closeModalBtn.addEventListener("click", closeModal);
-            modalOverlay.addEventListener("click", (e) => {
-                if (e.target === modalOverlay) closeModal();
-            });
-
-            document.body.appendChild(modalOverlay);
-        }
-
-        function closeModal() {
-            if (modalOverlay) {
-                modalOverlay.style.opacity = 0;
-                setTimeout(() => {
-                    modalOverlay.style.display = "none";
-                    // إزالة جميع العناصر داخل modalContent باستثناء زر الإغلاق
-                    // ابدأ من النهاية لتجنب مشاكل الفهرسة أثناء الإزالة
-                    for (let i = modalContent.children.length - 1; i >= 0; i--) {
-                        const child = modalContent.children[i];
-                        if (child !== closeModalBtn) {
-                            modalContent.removeChild(child);
-                        }
-                    }
-                    // إعادة تعيين src للفيديو إذا كان موجودًا لمنع مشاكل التشغيل
-                    const video = modalContent.querySelector('video'); // Changed from iframe to video
-                    if (video) {
-                        video.pause(); // Pause video when closing modal
-                        video.currentTime = 0; // Reset video to start
-                    }
-                }, 300);
-            }
-        }
-
-        function openImageModal(src) {
-            createModal(); // تأكد من إنشاء الـ modal إذا لم يكن موجودًا
-
-            // تنظيف المحتوى السابق
-            // ابدأ من النهاية لتجنب مشاكل الفهرسة أثناء الإزالة
-            for (let i = modalContent.children.length - 1; i >= 0; i--) {
-                const child = modalContent.children[i];
-                if (child !== closeModalBtn) { // احتفظ بزر الإغلاق
-                    modalContent.removeChild(child);
-                }
-            }
-
-            const img = document.createElement("img");
-            img.src = src;
-            img.style.maxWidth = "100%";
-            img.style.maxHeight = "100%";
-            img.alt = "صورة معرض الأعمال";
-            modalContent.appendChild(img);
-            modalOverlay.style.display = "flex";
-            // تأكد من أن الـ modal مرئي بعد إضافة المحتوى
-            setTimeout(() => {
-                modalOverlay.style.opacity = 1;
-                modalOverlay.focus();
-            }, 10);
-        }
-
-        function openVideoModal(url) {
-            createModal(); // تأكد من إنشاء الـ modal إذا لم يكن موجودًا
-
-            // تنظيف المحتوى السابق
-            // ابدأ من النهاية لتجنب مشاكل الفهرسة أثناء الإزالة
-            for (let i = modalContent.children.length - 1; i >= 0; i--) {
-                const child = modalContent.children[i];
-                if (child !== closeModalBtn) { // احتفظ بزر الإغلاق
-                    modalContent.removeChild(child);
-                }
-            }
-
-            const video = document.createElement("video"); // Changed from iframe to video
-            video.src = url;
-            video.controls = true; // Add controls for the video
-            video.autoplay = true; // Autoplay when opened in modal
-            video.preload = "auto"; // Preload video
-            video.style.width = "80vw";
-            video.style.height = "45vw";
-            video.style.maxHeight = "80vh";
-            video.style.maxWidth = "1280px";
-            modalContent.appendChild(video);
-            modalOverlay.style.display = "flex";
-            // تأكد من أن الـ modal مرئي بعد إضافة المحتوى
-            setTimeout(() => {
-                modalOverlay.style.opacity = 1;
-                modalOverlay.focus();
-            }, 10);
-        }
-
-        // Formspree integration for contact form
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const form = e.target;
-                const formData = new FormData(form);
-
-                try {
-                    const response = await fetch(form.action, {
-                        method: form.method,
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (response.ok) {
-                        alert('تم إرسال رسالتك بنجاح!');
-                        form.reset(); // Clear the form
-                    } else {
-                        const data = await response.json();
-                        if (data.errors) {
-                            alert(data.errors.map(error => error.message).join(', '));
-                        } else {
-                            alert('حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.');
-                        }
-                    }
-                } catch (error) {
-                    console.error('Error submitting form:', error);
-                    alert('حدث خطأ في الاتصال. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.');
-                }
-            });
-        }
-
-        // Mobile Menu Logic
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuCloseBtn = mobileMenu.querySelector('.close-btn');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-        const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-links a');
-
-        function toggleMobileMenu() {
-            mobileMenu.classList.toggle('open');
-            mobileMenuOverlay.classList.toggle('open');
-            document.body.classList.toggle('overflow-hidden'); // Prevent scrolling body when menu is open
-        }
-
-        mobileMenuButton.addEventListener('click', toggleMobileMenu);
-        mobileMenuCloseBtn.addEventListener('click', toggleMobileMenu);
-        mobileMenuOverlay.addEventListener('click', toggleMobileMenu); // Close menu when clicking overlay
-
-        // Close mobile menu when a link is clicked
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileMenu.classList.contains('open')) {
-                    toggleMobileMenu();
-                }
-            });
-        });
-
-        // Theme Toggle Logic (for both desktop and mobile)
-        const themeToggleDesktop = document.getElementById('theme-toggle');
-        const themeToggleMobile = document.getElementById('mobile-theme-toggle');
-
-        function toggleTheme() {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
+            
+            // ثانياً: استخدام لغة المتصفح
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('ar')) {
+                return 'ar';
+            } else if (browserLang.startsWith('ja')) {
+                return 'ja';
             } else {
+                return 'en';
+            }
+        }
+
+        // دالة لتطبيق الترجمة
+        function applyTranslation(lang) {
+            // تحديث متغير اللغة الحالية
+            currentLang = lang;
+            
+            // حفظ اللغة المفضلة في localStorage
+            localStorage.setItem('userLanguage', lang);
+            
+            // تحديث كل العناصر التي تحتوي على data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // تحديث العلم واللغة الحالية
+            document.getElementById('currentLang').textContent = lang.toUpperCase();
+            const flagMap = {
+                'ar': 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA0OCI+PHBhdGggZmlsbD0iIzIwNjY0NCIgZD0iTTAgMzJoNjR2MTZIMHoiLz48cGF0aCBmaWxsPSIjY2NjIiBkPSJNMCAwaDY0djMySDB6Ii8+PHBhdGggZmlsbD0iI2RlMjkxOSIgZD0iTTAgMGg2NHYxNkgweiIvPjxwYXRoIGQ9Ik0yOC4zIDIyLjFsMi4yIDEuNi0uOC0yLjUgMi4yLTEuNi0yLjgtLjEtLjgtMi41LS44IDIuNS0yLjguMSAyLjIgMS42LS44IDIuNXoiIGZpbGw9IiNkZTI5MTkiLz48L3N2Zz4=',
+                'en': 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA0OCI+PHBhdGggZD0iTTAgMzJoNjR2MTZIMHoiIGZpbGw9IiMwMDJGNjgiLz48cGF0aCBkPSJNMCAwaDY0djMySDB6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTAgMGg2NHYxNkgweiIgZmlsbD0iI0ZGMDAwMCIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9IiMwMDJGNjgiLz48cGF0aCBkPSJNMCAwTDEyIDI0TDAgNDhIMTZMMTAgMzZMMTYgMjRMMTIgMTZMMTYgMEgwWk0yNCAwaDE2bC00IDhMNDAgMGg0TDM2IDZMMzIgMGg4TDI4IDEyTDI0IDBaIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTI0IDI0bC0xNi0yNEg4bDE2IDI0bDE2LTI0aC00bC0xNiAyNFoiIGZpbGw9IiNGRjAwMDAiLz48cGF0aCBkPSJNMzIgMjRMMTYgNDhoNEwyMCAzNkwyNCA0OEgyOEwzMiAzNkwzNiA0OGg0TDM2IDI0eiIgZmlsbD0iIzAwMkY2OCIvPjwvc3ZnPg==',
+                'ja': 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA0OCI+PHBhdGggZD0iTTAgMGg2NHY0OEgweiIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9IjMyIiBjeT0iMjQiIHI9IjE0IiBmaWxsPSIjYmMwMDAwIi8+PC9zdmc+'
+            };
+            document.getElementById('currentFlag').src = flagMap[lang] || flagMap[defaultLang];
+            
+            // تحديث اتجاه الصفحة والفونت
+            document.body.className = document.body.className.replace(/\b(arabic|english|japanese)\b/g, '');
+            document.body.classList.add(lang === 'ar' ? 'arabic' : lang === 'ja' ? 'japanese' : 'english');
+        }
+
+        // تطبيق اللغة عند التحميل
+        document.addEventListener('DOMContentLoaded', function() {
+            // متابعة التمرير للشريط العلوي
+            const navbar = document.getElementById('navbar');
+            const progressBar = document.getElementById('progressBar');
+            
+            window.addEventListener('scroll', function() {
+                // شريط التنقل
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+                
+                // شريط التقدم
+                const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercentage = (window.scrollY / scrollTotal) * 100;
+                progressBar.style.width = scrollPercentage + '%';
+                
+                // تأثير الظهور التدريجي للأقسام
+                const fadeSections = document.querySelectorAll('.fade-in-section');
+                
+                fadeSections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.85) {
+                        section.classList.add('is-visible');
+                    }
+                });
+            });
+
+            // تبديل الوضع المظلم
+            const themeToggle = document.getElementById('theme-toggle');
+            const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+            
+            function toggleDarkMode() {
+                const isDark = document.documentElement.classList.toggle('dark');
+                localStorage.setItem('darkMode', isDark);
+                
+                // تحديث أيقونة الوضع الداكن
+                const moonIcon = document.querySelector('.fa-moon');
+                const sunIcon = document.querySelector('.fa-sun');
+                
+                if (isDark) {
+                    moonIcon.classList.add('hidden');
+                    sunIcon.classList.remove('hidden');
+                } else {
+                    moonIcon.classList.remove('hidden');
+                    sunIcon.classList.add('hidden');
+                }
+            }
+            
+            themeToggle.addEventListener('click', toggleDarkMode);
+            mobileThemeToggle.addEventListener('click', toggleDarkMode);
+            
+            // تفعيل وضع مظلم إذا كان مفعل سابقًا
+            if (localStorage.getItem('darkMode') === 'true') {
                 document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
+                document.querySelector('.fa-moon').classList.add('hidden');
+                document.querySelector('.fa-sun').classList.remove('hidden');
             }
-        }
 
-        themeToggleDesktop.addEventListener('click', toggleTheme);
-        themeToggleMobile.addEventListener('click', toggleTheme);
-
-        // Apply saved theme on load
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        let lastScrollTop = 0;
-
-        window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop) {
-                // Scrolling down
-                navbar.style.transform = 'translateY(-100%)';
-            } else {
-                // Scrolling up
-                navbar.style.transform = 'translateY(0)';
+            // Mobile Menu Logic
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuCloseBtn = mobileMenu.querySelector('.close-btn');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-links a');
+            
+            function toggleMobileMenu() {
+                mobileMenu.classList.toggle('open');
+                mobileMenuOverlay.classList.toggle('open');
+                document.body.classList.toggle('overflow-hidden');
             }
-            lastScrollTop = scrollTop;
-
-            // Add shadow when scrolled down
-            if (scrollTop > 50) {
-                navbar.classList.add('shadow-lg');
-            } else {
-                navbar.classList.remove('shadow-lg');
-            }
-        });
-
-        // Counter animation
-        const counters = document.querySelectorAll('.counter');
-        const speed = 200; // The lower the speed, the faster the count
-
-        const animateCounter = (counter) => {
-            const target = +counter.getAttribute('data-count');
-            let count = 0;
-            const updateCount = () => {
+            
+            mobileMenuButton.addEventListener('click', toggleMobileMenu);
+            mobileMenuCloseBtn.addEventListener('click', toggleMobileMenu);
+            mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+            
+            // Close mobile menu when a link is clicked
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', toggleMobileMenu);
+            });
+            
+            // تأثير التحميل التدريجي للأرقام
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+            let animated = false;
+            
+            function animateCounter(counter) {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
                 const increment = target / speed;
+                
                 if (count < target) {
-                    count += increment;
-                    counter.innerText = Math.ceil(count);
-                    setTimeout(updateCount, 1);
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(() => animateCounter(counter), 10);
                 } else {
                     counter.innerText = target;
                 }
+            }
+            
+            // تشغيل العدادات عند ظهورها في الشاشة
+            function startCountingWhenVisible() {
+                if (animated) return;
+                
+                const counterSection = document.querySelector('#hero');
+                const counterSectionTop = counterSection.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (counterSectionTop < windowHeight * 0.75) {
+                    animated = true;
+                    counters.forEach(counter => {
+                        animateCounter(counter);
+                    });
+                }
+            }
+            
+            window.addEventListener('scroll', startCountingWhenVisible);
+            startCountingWhenVisible(); // تشغيل عند التحميل للأرقام الظاهرة
+
+            // معرض الأعمال الجديد
+            const portfolioCategories = document.querySelectorAll('.portfolio-category');
+            const portfolioSidebar = document.getElementById('portfolioSidebar');
+            const closePortfolio = document.getElementById('closePortfolio');
+            const portfolioTitle = document.getElementById('portfolioTitle');
+            const portfolioContent = document.getElementById('portfolioContent');
+            
+            // بيانات المشاريع لكل قسم
+            const portfolioData = {
+                branding: {
+                    title: 'هويات بصرية',
+                    items: Array.from({length: 15}, (_, i) => ({
+                        type: 'image',
+                        src: `images/branding${i+1}.png`
+                    }))
+                },
+                uiux: {
+                    title: 'واجهات مستخدم',
+                    items: [
+                        {type: 'image', src: 'images/ui1.jpg'}  
+                    ]
+                },
+                motion: {
+                    title: 'فيديوهات موشن جرافيك',
+                    items: [
+                        {type: 'video', src: 'images/motion1.mp4', poster: 'images/motion1.jpg'},
+                        {type: 'video', src: 'images/motion2.mp4', poster: 'images/motion2.jpg'}
+                    ]
+                },
+                posters: {
+                    title: 'الإعلانات',
+                    items: Array.from({length: 15}, (_, i) => ({
+                        type: 'image',
+                        src: `images/poster${i+1}.png`
+                    }))
+                }
             };
-            updateCount();
-        };
-
-        // Intersection Observer for counters
-        const counterSection = document.querySelector('#hero'); // Assuming counters are in hero section
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.5 // Trigger when 50% of the section is visible
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    counters.forEach(animateCounter);
-                    observer.unobserve(entry.target); // Stop observing once animated
+            
+            // فتح معرض القسم
+            portfolioCategories.forEach(category => {
+                category.addEventListener('click', () => {
+                    const categoryType = category.dataset.category;
+                    const categoryData = portfolioData[categoryType];
+                    
+                    portfolioTitle.textContent = categoryData.title;
+                    portfolioContent.innerHTML = '';
+                    
+                    categoryData.items.forEach(item => {
+                        const itemElement = document.createElement('div');
+                        itemElement.className = 'portfolio-item-full';
+                        
+                        if (item.type === 'image') {
+                            itemElement.innerHTML = `
+                                <img src="${item.src}" alt="${categoryData.title}" class="w-full">
+                            `;
+                        } else if (item.type === 'video') {
+                            itemElement.innerHTML = `
+                                <video controls poster="${item.poster}" class="w-full">
+                                    <source src="${item.src}" type="video/mp4">
+                                    متصفحك لا يدعم تشغيل الفيديو.
+                                </video>
+                            `;
+                        }
+                        
+                        portfolioContent.appendChild(itemElement);
+                    });
+                    
+                    portfolioSidebar.style.transform = 'translateX(0)';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // إغلاق المعرض الجانبي
+            closePortfolio.addEventListener('click', () => {
+                portfolioSidebar.style.transform = 'translateX(100%)';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // إغلاق بالنقر خارج المعرض
+            portfolioSidebar.addEventListener('click', (e) => {
+                if (e.target === portfolioSidebar) {
+                    portfolioSidebar.style.transform = 'translateX(100%)';
+                    document.body.style.overflow = 'auto';
                 }
             });
-        }, observerOptions);
 
-        if (counterSection) {
-            observer.observe(counterSection);
-        }
+            // تحسين تجربة التمرير لنقاط الارتكاز
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('nav').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+
+            
+            // تحميل مكتبة SweetAlert2 للرسائل الجميلة
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11';
+            document.head.appendChild(script);
+        });
     </script>
 </body>
 </html>

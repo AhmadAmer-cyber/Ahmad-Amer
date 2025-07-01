@@ -1,0 +1,72 @@
+Folder PATH listing for volume OS
+Volume serial number is E870-A297
+C:.
+?   cv.pdf
+?   index.html
+?   structure.txt
+?   
+????css
+?       style.css
+?       
+????favicon_io
+?       android-chrome-192x192.png
+?       android-chrome-512x512.png
+?       apple-touch-icon.png
+?       favicon-16x16.png
+?       favicon-32x32.png
+?       favicon.ico
+?       site.webmanifest
+?       
+????images
+?       a1.webp
+?       branding1.png
+?       branding10.png
+?       branding11.png
+?       branding12.png
+?       branding13.png
+?       branding14.png
+?       branding15.png
+?       branding2.png
+?       branding3.png
+?       branding4.png
+?       branding5.png
+?       branding6.png
+?       branding7.png
+?       branding8.png
+?       branding9.png
+?       client1.jpg
+?       client2.jpg
+?       client3.jpg
+?       company1.png
+?       company2.png
+?       company3.png
+?       company4.png
+?       company5.png
+?       designer.png
+?       favicon.png
+?       motion1.jpg
+?       motion1.mp4
+?       motion2.mp4
+?       paypal-logo.png
+?       photo.jpg
+?       poster1.png
+?       poster10.png
+?       poster11.png
+?       poster12.png
+?       poster13.png
+?       poster14.png
+?       poster15.png
+?       poster2.png
+?       poster3.png
+?       poster4.png
+?       poster5.png
+?       poster6.png
+?       poster7.png
+?       poster8.jpg
+?       poster9.png
+?       ui1.jpg
+?       ui2.png
+?       
+????js
+        script.javascript
+        
